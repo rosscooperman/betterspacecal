@@ -58,6 +58,20 @@ function buildMap(){
 
 }
 
+
+function showModal(d) {
+  // alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);
+  $('#obsTarget').html(d["target"]);
+  $('#obsSource').html(d["source"]);
+  $('#obsStartDate').html(d["start"]);
+  $('#obsEndDate').html(d["end"]);
+  Avgrund.show( "#default-popup" );
+}
+
+$(function() {
+  $('.closeButton').click(function() { Avgrund.hide(); });
+});
+
 function drawLocs(coords){
   clearLocs();
   svg=d3.select("#skymap_svg");
@@ -74,7 +88,7 @@ function drawLocs(coords){
      })
      .attr("r", 5)
      .attr("class",function(d){return "target "+d["source"]+"_marker";})
-     .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
+     .on("click", showModal)
      .append("title")
      .text(function(d) {return d["target"]});
 
