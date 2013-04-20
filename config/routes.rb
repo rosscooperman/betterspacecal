@@ -1,4 +1,4 @@
 Betterspacecal::Application.routes.draw do
-  resources :satellites, only: [ :index ]
-  root to: 'satellites#index'
+  resources :observations, only: [ :index ]
+  root to: 'observations#index'
 end
