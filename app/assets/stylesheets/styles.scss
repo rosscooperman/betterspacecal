@@ -29,4 +29,19 @@ h1 {font-size: 4em;}
     p {line-height: 1.6em; color: #FFF;}
 }
 
+/* d3 styles */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.target{
+	stroke: #000000;
+}
+
+.XMM-Newton_marker{
+	fill: #c5f0ff;
+}
 
