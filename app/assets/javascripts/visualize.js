@@ -74,23 +74,50 @@ $(function() {
 
 function drawLocs(coords){
   clearLocs();
-  svg=d3.select("#skymap_svg");
-  svg.selectAll("circle")
-     .data(coords)
-     .enter()
-     .append("circle")
-     .attr("cx", function(d) {var local_l=d["l"];
-         if(local_l>180){ local_l-=360;}
-          return xScale(local_l);
-     })
-     .attr("cy", function(d) {
-          return yScale(d["b"]);
-     })
-     .attr("r", 5)
-     .attr("class",function(d){return "target "+d["source"]+"_marker";})
+var overall_start=0;
+	var max_date=0;
+
+	for(var i in coords){
+		var date=new Date(coords[i]["start"]);
+		date=date/1000.;
+		if(date<overall_start || overall_start==0){overall_start=date;}
+		if(date>max_date){max_date=date;}
+		coords[i]["secs"]=date;
+	}
+	var duration=3000/(1.*(max_date-overall_start));
+
+	svg=d3.select("#skymap_svg");
+	var c=svg.selectAll("circle")
+	   .data(coords)
+	   .enter()
+	   .append("circle")
+	   .attr("cx", function(d) {var local_l=d["l"];
+	   		if(local_l>180){ local_l-=360;}
+	        return xScale(local_l);
+	   })
+	   .attr("cy", function(d) {
+	        return yScale(d["b"]);
+	   })
+	   .attr("class",function(d){return "target "+d["source"]+"_marker";})
+	   .attr("r", 1)
+		.transition()
+	   .attr("r",  10)
+	   .ease("linear")
+	   .duration(1000)
+	   .delay(function(d) {
+	        return (d["secs"]-overall_start)*duration;
+	   })
+		.transition()
+	   .attr("r",  5)
+	   .ease("elastic")
+	   .duration(500);
+	 
+	 svg.selectAll("circle")
+	   .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
+	   .append("title")
+   	   .text(function(d) {return d["target"]});
+
      .on("click", showModal)
-     .append("title")
-     .text(function(d) {return d["target"]});
 
 }
 
