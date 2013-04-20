@@ -4,7 +4,6 @@ body {background: #FFF; color: #212121; font-family: helvetica, sans-serif;}
   .inner {
     width: 980px;
     margin: 0 auto;
-    background: yellowgreen;
   }
 }
 
@@ -18,10 +17,16 @@ header {
 h1 {font-size: 4em;}
 
 
+
+
 .skymap {
   background: image-url('visible_sky.jpg') no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    
+    p {line-height: 1.6em; color: #FFF;}
 }
+
+
