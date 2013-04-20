@@ -9,3 +9,127 @@
     <p>Timeline Calendar will go here.</p>
   </div>
 </div>
+
+
+<script>
+var svg=null;
+var xScale=null;
+var yScale=null;
+
+function initMap(){
+	window.onresize=function(){console.log("resizing!");}
+	buildMap();
+}
+
+function buildMap(){
+	
+	// this setup convention follows Bostock: http://bl.ocks.org/mbostock/3019563
+	var margin = {top: 20, right: 20, bottom: 20, left: 20};
+	var div_width=$("#skymap").width();
+	var width = div_width - margin.left - margin.right,
+	    height = div_width/2. - margin.top - margin.bottom;
+
+	svg = d3.select("#skymap").append("svg")
+			.attr("id","skymap_svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			
+	// With this convention, all subsequent code can ignore margins.
+	var minL=-180;
+	var minB=-90;
+	var maxL=180;
+	var maxB=90;
+
+	
+	xScale = d3.scale.linear()
+	                     .domain([minL,maxL])
+	                     .range([width, 0]);					// using astronomical convention - increasing to the left
+	
+	yScale = d3.scale.linear()
+	                     .domain([minB,maxB])
+	                     .range([height,0]);
+		
+	var xAxis = d3.svg.axis()
+	                  .scale(xScale)
+	                  .orient("bottom")
+	                  .ticks(19);  //Set rough # of ticks
+	
+	//Define Y axis
+	var yAxis = d3.svg.axis()
+	                  .scale(yScale)
+	                  .orient("left")
+	                  .ticks(10);
+
+	svg.append("g")
+	    .attr("class", "axis")  //Assign "axis" class
+	    .attr("transform", "translate(0," + height/2. + ")")
+	    .call(xAxis);
+	//Create Y axis
+	svg.append("g")
+	    .attr("class", "axis")
+	    .attr("transform", "translate(" + width/2. + ",0)")
+	    .call(yAxis);
+
+	// Add an x-axis label.
+	svg.append("text")
+	    .attr("class", "label")
+	    .attr("text-anchor", "end")
+	    .attr("x", width)
+	    .attr("y", height/2.-5)
+	    .text("l (degrees)");
+	
+	// Add a y-axis label.
+	svg.append("text")
+	    .attr("class", "label")
+	    .attr("text-anchor", "end")
+	    .attr("y", width/2+5)
+	    .attr("dy", ".75em")
+	    .attr("x", 0)
+	    .attr("transform", "rotate(-90)")
+	    .text("b (degrees)");
+                  
+}
+
+function drawLocs(coords){
+	clearLocs();
+	coords=[{
+	  'source': 'XMM-Newton',
+	  'target': 'EXO 0748-676',
+	  'ra': 117.1375,
+	  'dec': -67.75194444444446,
+	  'ra_str': '7h48m33.0s',
+	  'dec_str': '-67d45m07.00s"',
+	  'b': -19.811945008926106,
+	  'l': 279.97711252986574,
+	  'end': '2013-04-16 10:44:34',
+	  'start': '2013-04-15 05:26:14',
+	 }];
+	svg=d3.select("#skymap_svg");
+	svg.selectAll("circle")
+	   .data(coords)
+	   .enter()
+	   .append("circle")
+	   .attr("cx", function(d) {var local_l=d["l"];
+	   		if(local_l>180){ local_l-=360;}
+	        return xScale(local_l);
+	   })
+	   .attr("cy", function(d) {
+	        return yScale(d["b"]);
+	   })
+	   .attr("r", 5)
+	   .attr("class",function(d){return "target "+d["source"]+"_marker";})
+	   .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
+	   .append("title")
+	   .text(function(d) {return d["target"]});
+
+}
+
+function clearLocs(){
+	svg.selectAll("circle")
+		.data([])
+		.exit().remove();
+}
+
+</script>
