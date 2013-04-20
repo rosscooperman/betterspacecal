@@ -2,11 +2,16 @@ require 'open-uri'
 
 class Observation
   include HTTParty
+  extend  Mongo
 
   class << self
 
+    def mongo
+      @mongo ||= MongoClient.new('localhost', 27017)['spacecalnyc']['schedules']
+    end
+
     def search(params = {})
-      File.read(Rails.root.join('public', 'pyserver.json')).html_safe
+      mongo.find.to_a
     end
 
     def query_string(params = {})
