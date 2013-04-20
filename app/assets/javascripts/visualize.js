@@ -16,7 +16,7 @@ function initMap(){
 function buildMap(){
 
   // this setup convention follows Bostock: http://bl.ocks.org/mbostock/3019563
-  var margin = {top: 20, right: 20, bottom: 20, left: 20};
+  var margin = {top: 0, right: 0, bottom: 0, left: 0};
   var div_width=$(".skymap").width();
   var width = div_width - margin.left - margin.right,
       height = div_width/2. - margin.top - margin.bottom;
@@ -55,34 +55,6 @@ function buildMap(){
                     .scale(yScale)
                     .orient("left")
                     .ticks(10);
-
-  svg.append("g")
-      .attr("class", "axis")  //Assign "axis" class
-      .attr("transform", "translate(0," + height/2. + ")")
-      .call(xAxis);
-  //Create Y axis
-  svg.append("g")
-      .attr("class", "axis")
-      .attr("transform", "translate(" + width/2. + ",0)")
-      .call(yAxis);
-
-  // Add an x-axis label.
-  svg.append("text")
-      .attr("class", "label")
-      .attr("text-anchor", "end")
-      .attr("x", width)
-      .attr("y", height/2.-5)
-      .text("l (degrees)");
-
-  // Add a y-axis label.
-  svg.append("text")
-      .attr("class", "label")
-      .attr("text-anchor", "end")
-      .attr("y", width/2+5)
-      .attr("dy", ".75em")
-      .attr("x", 0)
-      .attr("transform", "rotate(-90)")
-      .text("b (degrees)");
 
 }
 
