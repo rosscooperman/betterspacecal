@@ -17,14 +17,21 @@ var xScale=null;
 var yScale=null;
 
 function initMap(){
-	window.onresize=function(){console.log("resizing!");}
 	buildMap();
+	var aspect = 2.,
+	    chart = $("#skymap_svg");
+	$(window).on("resize", function() {
+	    var targetWidth = chart.parent().width();
+	    chart.attr("width", targetWidth);
+	    chart.attr("height", targetWidth / aspect);
+	});
+
 }
 
 function buildMap(){
 	
 	// this setup convention follows Bostock: http://bl.ocks.org/mbostock/3019563
-	var margin = {top: 20, right: 20, bottom: 20, left: 20};
+	var margin = {top: 0, right: 20, bottom: 0, left: 20};
 	var div_width=$("#skymap").width();
 	var width = div_width - margin.left - margin.right,
 	    height = div_width/2. - margin.top - margin.bottom;
@@ -33,6 +40,8 @@ function buildMap(){
 			.attr("id","skymap_svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
+			.attr("preserveAspectRatio","xMidYMid")
+			.attr("viewBox","0 0 "+div_width+" "+div_width/2.)
 		.append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 			
