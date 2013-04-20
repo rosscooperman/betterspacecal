@@ -1,4 +1,12 @@
-body {background: #FFF; color: #212121; font-family: helvetica, sans-serif;}
+html, 
+body {
+	height: 100%;
+//  overflow: hidden;
+	background: #FFF; 
+  color: #212121; 
+  font-family: helvetica, sans-serif;
+}
+
 
 .container {width: 100%;
   .inner {
@@ -16,17 +24,29 @@ header {
 
 h1 {font-size: 4em;}
 
-
-
-
 .skymap {
   background: image-url('visible_sky.jpg') no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
-    
+    background-size: cover;   
     p {line-height: 1.6em; color: #FFF;}
+}
+
+/* d3 styles */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.target{
+	stroke: #000000;
+}
+
+.XMM-Newton_marker{
+	fill: #c5f0ff;
 }
 
 

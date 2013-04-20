@@ -1,3 +1,30 @@
+<div class="container filters">
+  <div class="inner">
+    <%= form_tag do %>
+      <%= label_tag(:source, "Source") %>
+      <%= select_tag(:source, options_for_select([
+        ['AGILE', "agile"],
+        ['Chandra', "chandra"],
+        ['Fermi', "fermi"],
+        ['INTEGRAL', "integral"],
+        ['NuSTAR', "nustar"],
+        ['XMM-NEWTON', "xmm-newton"]
+      ], "xmm-newton")) %>
+
+      <%= label_tag(:target, "Target:") %>
+      <%= text_field_tag(:target) %>
+
+      <%= label_tag(:start, "Start:") %>
+      <%= text_field_tag(:start, 1.week.ago.to_date) %>
+
+      <%= label_tag(:end, "End:") %>
+      <%= text_field_tag(:end, Date.today) %>
+
+      <%= submit_tag("Filter") %>
+    <% end %>
+  </div>
+</div>
+
 <div class="container skymap">
   <div class="inner">
     <p>This is where the dynamic image of the universe goes. Currently a placeholder. </p>
@@ -7,28 +34,5 @@
 <div class="container" style="background: green;">
   <div class="inner">
     <p>Timeline Calendar will go here.</p>
-  </div>
-</div>
-
-
-
-
-<div class="container">
-  <div class="inner">
-    <p>data for testing from datapoints</p>
-    <ul>
-    <% @observations.each do |observation| %>
-      <li><%= observation.source %></li>
-      <li><%= observation.target %></li>
-      <li><%= observation.ra %></li>
-      <li><%= observation.dec %></li>
-      <li><%= observation.ra_str %></li>
-      <li><%= observation.dec_str %></li>
-      <li><%= observation.b %></li>
-      <li><%= observation.l %></li>
-      <li><%= observation.end %></li>
-      <li><%= observation.start %></li>
-    <% end %>
-    </ul>
   </div>
 </div>

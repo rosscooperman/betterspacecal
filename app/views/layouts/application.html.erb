@@ -5,14 +5,37 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
+	<script>
+		function openDialog() {
+			Avgrund.show( "#default-popup" );
+		}
+		function closeDialog() {
+			Avgrund.hide();
+		}
+	</script>
+  
 </head>
 <body>
 
-<header class="container">
-  <h1>MyCalNYC</h1>
-</header>
+	<div class="avgrund-contents">
+		<header class="container">
+      <h1>MyCalNYC</h1>
+      <button onclick="javascript:openDialog();">Open a modal</button>
+    </header>
+    <%= yield %>
+	</div>
 
-<%= yield %>
+
+    <div class="cover"></div>
+    
+    
+    <!-- This is the modal -->
+    <aside id="default-popup" class="avgrund-popup">
+  		<h2>Modal Contentfolks</h2>
+  		<button onclick="javascript:closeDialog();">Close</button>
+  	</aside>
+  	
 
 </body>
 </html>
