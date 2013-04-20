@@ -101,10 +101,24 @@ function clearLocs(){
     .exit().remove();
 }
 
+// Add an onClick callback to the filter button that fires this function
+function getFilters(){
+  // Return the form elements serialized
+  return $('form').serialize();
+}
+
+function fetchData(){
+  $.getJSON(document.location, getFilters(), function(data, status, xhr) {
+    drawLocs(data);
+  });
+}
+
 
 $(function() {
   initMap();
-  $.getJSON(document.location, null, function(data, status, xhr) {
-    drawLocs(data);
+  fetchData();
+  $('form').submit(function(e){
+    e.preventDefault();
+    fetchData();
   });
 });
