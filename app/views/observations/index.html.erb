@@ -1,3 +1,14 @@
+<ul>
 <% @observations.each do |observation| %>
-  <%= observation.target %>
+  <li><%= observation.source %></li>
+  <li><%= observation.target %></li>
+  <li><%= observation.ra %></li>
+  <li><%= observation.dec %></li>
+  <li><%= observation.ra_str %></li>
+  <li><%= observation.dec_str %></li>
+  <li><%= observation.b %></li>
+  <li><%= observation.l %></li>
+  <li><%= observation.end %></li>
+  <li><%= observation.start %></li>
 <% end %>
+</ul>
