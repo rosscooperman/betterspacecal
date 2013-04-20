@@ -7,3 +7,21 @@ body {background: #FFF; color: #212121; font-family: helvetica, sans-serif;}
     background: yellowgreen;
   }
 }
+
+header {
+  text-align: center;
+  color: #1300aa;
+  padding: 2em 0;
+  border-bottom: 1px solid #1300aa;
+}
+
+h1 {font-size: 4em;}
+
+
+.skymap {
+  background: url('visible_sky.jpg') no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
