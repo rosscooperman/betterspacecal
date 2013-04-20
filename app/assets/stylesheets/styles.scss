@@ -19,7 +19,7 @@ h1 {font-size: 4em;}
 
 
 .skymap {
-  background: url('visible_sky.jpg') no-repeat center center; 
+  background: image-url('visible_sky.jpg') no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
