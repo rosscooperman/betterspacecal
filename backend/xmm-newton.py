@@ -1,3 +1,4 @@
+import time
 import pymongo
 import requests
 
@@ -13,6 +14,7 @@ DATETIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 def run():
   schedule = fetch_schedule()
+  print schedule
   if schedule:
     save_schedule(schedule)
 
@@ -22,8 +24,9 @@ def save_schedule(schedule):
     conn = pymongo.MongoClient()
     db = conn['spacecalnyc']
     db.schedules.insert(schedule)
+    print time.asctime() + ' | INFO | Sucessfully saved schedule for ' + TELESCOPE
   except Exception as e:
-    print 'Failed to save schedule '
+    print time.asctime() + ' | ERROR | Failed to save schedule for ' + TELESCOPE
 
 
 def fetch_schedule():
@@ -35,7 +38,8 @@ def fetch_schedule():
       info = row.findAll('td')
       coords = parseCoords(info[3].text, info[4].text)
       observation = {
-            '_id'     : info[1].find('a').text,
+            '_id'     : TELESCOPE + '|' + info[1].find('a').text,
+            'source'  : TELESCOPE,
             'target'  : info[2].text,
             'ra'      : coords['ra_float'],
             'dec'     : coords['dec_float'],
@@ -49,7 +53,7 @@ def fetch_schedule():
       schedule.append(observation)
     return schedule
   except Exception as e:
-    print 'Failed to fetch schedule for ' + TELESCOPE +'. Error: ' + str(e)
+    print time.asctime() + ' | ERROR | Failed to fetch schedule for ' + TELESCOPE +'. Error: ' + str(e)
     return None
 
 
