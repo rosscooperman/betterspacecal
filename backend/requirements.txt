@@ -1,0 +1,4 @@
+requests
+BeautifulSoup
+scipy
+astropysics
