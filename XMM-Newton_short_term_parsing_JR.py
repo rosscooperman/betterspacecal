@@ -1,3 +1,6 @@
+from urllib2 import urlopen
+import sys, os
+
 text=urlopen("http://xmm2.esac.esa.int/external/xmm_sched/short_term_schedule.php").read()
 
 from astropysics.coords import ICRSCoordinates, GalacticCoordinates
