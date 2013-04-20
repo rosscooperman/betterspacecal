@@ -8,7 +8,7 @@ from astropysics.coords import ICRSCoordinates, GalacticCoordinates
 # this takes two strings in, one for the right ascension, and one for the declination
 # this can be passed in with a range of formats. If it fails then it throws a 
 def parseCoords(ra_str,dec_str):
-  eq_coords = ICRSCoordinates(ra_str,dec_str)
+ 	eq_coords = ICRSCoordinates(ra_str,dec_str)
 	gal_coords = eq_coords.convert(GalacticCoordinates)
 	return {"ra_float":eq_coords.ra.degrees, "dec_float":eq_coords.dec.degrees,\
 			 "l_float":gal_coords.l.degrees, "b_float":gal_coords.b.degrees,\
