@@ -123,6 +123,8 @@ h1 {
     font-size: 2em;
 }
 
+ul { list-style-type: none;}
+
 /**
  * Address styling not present in IE 8/9, Safari 5, and Chrome.
  */
