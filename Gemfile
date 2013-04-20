@@ -5,6 +5,8 @@ gem 'jquery-rails'
 gem 'httparty'
 gem 'thin'
 gem "d3-rails"
+gem 'mongo'
+gem 'bson_ext'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
