@@ -15,14 +15,14 @@
       <div class="inputContainer">
       <%= label_tag(:target, "Target:") %>
       <%= text_field_tag(:target) %>
-      </div>  
-      <div class="inputContainer">    
+      </div>
+      <div class="inputContainer">
       <%= label_tag(:start, "Start:") %>
       <%= content_tag(:input, nil, type: 'date', name: 'start', value: 1.week.ago.to_date) %>
       </div>
-      <div class="inputContainer">     
+      <div class="inputContainer">
       <%= label_tag(:end, "End:") %>
-      <%= content_tag(:input, nil, type: 'date', name: 'start', value: 1.week.from_now.to_date) %>
+      <%= content_tag(:input, nil, type: 'date', name: 'end', value: 1.week.from_now.to_date) %>
       </div>
       <div class="inputContainer">
       <%= submit_tag("Filter", :id => "filter") %>
@@ -72,7 +72,7 @@
  { '_id' : 'XMM-Newton|0693741201', 'b' : -56.48579396751591, 'dec_str' : '-25d59m54.00s', 'ra_str' : '22h21m5.00000000002s', 'end' : '2013-04-27T19:16:59Z', 'target' : '2PIGG_1752', 'start' : '2013-04-27T14:33:38Z', 'l' : 26.13387894691477, 'source' : 'NuSTAR', 'ra' : 335.2708333333334, 'dec' : -25.99833333333333 },
  { '_id' : 'XMM-Newton|0693850701', 'b' : 58.00496444681011, 'dec_str' : '+58d25m05.00s', 'ra_str' : '13h29m38.0s', 'end' : '2013-04-29T09:10:00Z', 'target' : 'NGC 5204', 'start' : '2013-04-29T04:10:00Z', 'l' : 113.4946376229472, 'source' : 'INTEGRAL', 'ra' : 202.4083333333333, 'dec' : 58.41805555555555 },
  { '_id' : 'XMM-Newton|0693851401', 'b' : 58.00496444681011, 'dec_str' : '+58d25m05.00s', 'ra_str' : '13h29m38.0s', 'end' : '2013-04-21T09:47:13Z', 'target' : 'NGC 5204', 'start' : '2013-04-21T04:47:13Z', 'l' : 113.4946376229472, 'source' : 'RXTE', 'ra' : 202.4083333333333, 'dec' : 58.41805555555555 }
-                     
+
           ]
     }
     var kvp = {
@@ -100,8 +100,8 @@
         }
 
     }
-    
-    
+
+
 
 
     // Timeline and eventSource1

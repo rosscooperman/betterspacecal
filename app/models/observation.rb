@@ -42,11 +42,11 @@ class Observation
     end
 
     def filter_for_start(date)
-      { '$gte' => Time.parse(date) }
+      { :'$gte' => Time.parse(date).at_midnight }
     end
 
     def filter_for_end(date)
-      { '$lte' => Time.parse(date) }
+      { :'$lt' => Time.parse(date).tomorrow.at_midnight }
     end
 
     def filter_for_target(target)
@@ -54,7 +54,7 @@ class Observation
     end
 
     def filter_for_source(sources)
-      { '$in' => sources }
+      { :'$in' => sources }
     end
   end
 end
