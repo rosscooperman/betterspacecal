@@ -1,7 +1,7 @@
 <div class="container filters">
   <div class="inner">
     <%= form_tag do %>
-      <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuSTAR", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
+      <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuStar", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
         <%= label_tag('source[]', source) %>
         <%= check_box_tag('source[]', source, true) %>
       <% end %>
