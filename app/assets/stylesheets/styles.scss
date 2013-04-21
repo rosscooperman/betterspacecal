@@ -1,9 +1,14 @@
 html,
 body {
 	height: 100%;
+<<<<<<< HEAD
 //  overflow: hidden;
 	background: #FFF;
   color: #212121;
+=======
+	background: #FFF; 
+  color: #212121; 
+>>>>>>> style dilter fields
   font-family: 'PT Sans', helvetica, sans-serif;
 }
 
@@ -73,6 +78,37 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
   &:hover {
     background: #27b63e;
     } 
+  }
+  
+  .opticals {
+    width: 180px;
+    margin-top: 37px; 
+    margin-right:  16px;
+    position: relative;
+    input, label {float: left;}
+    input[type="checkbox"] {
+      width: 16px;
+      margin-top: 12px;
+    }
+    label {width: 132px;}
+    .opticalDrop {
+      display: none; 
+      position:absolute; 
+      padding-left: 8px;
+      top: 36px;
+      background: #121212;
+      color:#cfcfcf;
+      }
+    .hotdrop { 
+      border: 1px solid #111;
+      padding: 8px 8px 8px 0;
+      cursor: pointer;
+      background: #cfcfcf;
+      color: #222;
+      &:hover {
+        background: #fff;
+      }
+    }
   }
 }
 
