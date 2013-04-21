@@ -67,32 +67,7 @@
 <script>
     SimileAjax.History.enabled = false;
 
-    // Events that will be loaded via loadJSON method
-   /* var timeline_data = {
-            'events' : [
-            { '_id' : 'XMM-Newton|0411781701', 'b' : -52.25237677441478, 'dec_str' : '-30d13m19.00s', 'ra_str' : '21h58m54.0s', 'end' : '2013-04-30T19:15:35Z', 'target' : 'PKS2155-304 off-30', 'start' : '2013-04-29T15:43:55Z', 'l' : 17.7378438951983, 'source' : 'XMM-Newton', 'ra' : 329.725, 'dec' : -30.22194444444446 },
- { '_id' : 'XMM-Newton|0411782101', 'b' : -52.24561533954663, 'dec_str' : '-30d13m32.00s', 'ra_str' : '21h58m52.0s', 'end' : '2013-04-24T19:39:14Z', 'target' : 'PKS2155-304', 'start' : '2013-04-23T22:14:13Z', 'l' : 17.73069222055629, 'source' : 'XMM-Newton', 'ra' : 329.7166666666666, 'dec' : -30.22555555555554 },
- { '_id' : 'XMM-Newton|0510390701', 'b' : -2.788852535442304, 'dec_str' : '-45d10m35.00s', 'ra_str' : '8h35m20.0s', 'end' : '2013-05-02T11:00:03Z', 'target' : 'PSR B0833-45', 'start' : '2013-05-01T03:55:02Z', 'l' : 263.5508503101365, 'source' : 'XMM-Newton', 'ra' : 128.8333333333334, 'dec' : -45.17638888888892 },
- { '_id' : 'XMM-Newton|0651290301', 'b' : 8.582537319035811, 'dec_str' : '-32d21m38.00s', 'ra_str' : '8h57m37.0s', 'end' : '2013-04-22T08:19:16Z', 'target' : 'GRB 130408A', 'start' : '2013-04-21T11:30:56Z', 'l' : 256.2104652382025, 'source' : 'XMM-Newton', 'ra' : 134.4041666666667, 'dec' : -32.36055555555558 },
- { '_id' : 'XMM-Newton|0677761101', 'b' : -58.43796329058977, 'dec_str' : '-55d54m58.00s', 'ra_str' : '23h39m33.0s', 'end' : '2013-04-23T21:27:42Z', 'target' : 'XXLs070', 'start' : '2013-04-23T10:52:28Z', 'l' : 322.2222941296079, 'source' : 'XMM-Newton', 'ra' : 354.8874999999999, 'dec' : -55.91611111111112 },
- { '_id' : 'XMM-Newton|0690170701', 'b' : -35.69431949505891, 'dec_str' : '-40d37m14.00s', 'ra_str' : '20h31m51.0s', 'end' : '2013-04-22T13:18:41Z', 'target' : 'RXCJ2031.8-4037', 'start' : '2013-04-22T09:58:41Z', 'l' : 0.7473170316603271, 'source' : 'Chandra', 'ra' : 307.9625, 'dec' : -40.62055555555558 },
- { '_id' : 'XMM-Newton|0690330101', 'b' : -19.81194500892611, 'dec_str' : '-67d45m07.00s', 'ra_str' : '7h48m33.0s', 'end' : '2013-04-16T10:44:34Z', 'target' : 'EXO 0748-676', 'start' : '2013-04-15T05:26:14Z', 'l' : 279.9771125298657, 'source' : 'XMM-Newton', 'ra' : 117.1375, 'dec' : -67.75194444444448 },
- { '_id' : 'XMM-Newton|0690720301', 'b' : 29.95115440057247, 'dec_str' : '+70d42m05.00s', 'ra_str' : '17h57m15.0s', 'end' : '2013-04-27T12:55:24Z', 'target' : '2M J1757154+704201', 'start' : '2013-04-27T04:18:43Z', 'l' : 101.1658719091136, 'source' : 'AGILE', 'ra' : 269.3124999999999, 'dec' : 70.70138888888887 },
- { '_id' : 'XMM-Newton|0690800701', 'b' : 30.64404130826773, 'dec_str' : '-6d4m17.00s', 'ra_str' : '9h27m46.0s', 'end' : '2013-04-28T01:28:58Z', 'target' : 'HD 81809', 'start' : '2013-04-27T21:18:57Z', 'l' : 239.1422609531496, 'source' : 'XMM-Newton', 'ra' : 141.9416666666667, 'dec' : -6.071388888888874 },
- { '_id' : 'XMM-Newton|0690800901', 'b' : -5.822784159028011, 'dec_str' : '+38d45m25.00s', 'ra_str' : '21h6m58.0s', 'end' : '2013-04-29T14:30:44Z', 'target' : '61 Cyg', 'start' : '2013-04-29T10:20:44Z', 'l' : 82.33431292705583, 'source' : 'XMM-Newton', 'ra' : 316.7416666666667, 'dec' : 38.75694444444444 },
- { '_id' : 'XMM-Newton|0691030401', 'b' : -4.262058304176161, 'dec_str' : '+35d35m16.00s', 'ra_str' : '20h43m24.0s', 'end' : '2013-04-26T11:32:41Z', 'target' : 'X Cyg', 'start' : '2013-04-26T02:29:20Z', 'l' : 76.8701224724579, 'source' : 'XMM-Newton', 'ra' : 310.85, 'dec' : 35.58777777777779 },
- { '_id' : 'XMM-Newton|0691100301', 'b' : -27.82534772871759, 'dec_str' : '-65d53m07.00s', 'ra_str' : '6h19m27.0s', 'end' : '2013-04-20T19:55:10Z', 'target' : '2MASXJ06192755-6553', 'start' : '2013-04-20T07:41:50Z', 'l' : 275.7067955231615, 'source' : 'XMM-Newton', 'ra' : 94.8625, 'dec' : -65.88527777777777 },
- { '_id' : 'XMM-Newton|0691580101', 'b' : 4.133750376827937, 'dec_str' : '+52d24m42.00s', 'ra_str' : '21h0m13.0s', 'end' : '2013-04-20T05:27:22Z', 'target' : 'Cyg OB7', 'start' : '2013-04-19T05:00:42Z', 'l' : 91.76456871526456, 'source' : 'Spitzer', 'ra' : 315.0541666666667, 'dec' : 52.41166666666667 },
- { '_id' : 'XMM-Newton|0691670201', 'b' : 31.52418171885502, 'dec_str' : '+26d25m47.00s', 'ra_str' : '8h26m6.0s', 'end' : '2013-04-28T13:24:55Z', 'target' : 'RXJ0826.1+2625', 'start' : '2013-04-28T02:18:14Z', 'l' : 197.1225318227645, 'source' : 'Herschel', 'ra' : 126.525, 'dec' : 26.42972222222223 },
- { '_id' : 'XMM-Newton|0692933601', 'b' : 44.34503437743243, 'dec_str' : '+71d17m36.00s', 'ra_str' : '14h14m5.0s', 'end' : '2013-04-23T08:41:09Z', 'target' : 'PLCKESZG113.82+44.35', 'start' : '2013-04-23T04:39:28Z', 'l' : 113.827191925888, 'source' : 'Swift', 'ra' : 213.5208333333333, 'dec' : 71.29333333333332 },
- { '_id' : 'XMM-Newton|0693221501', 'b' : -27.47620859516725, 'dec_str' : '+0d35m26.00s', 'ra_str' : '20h57m46.0s', 'end' : '2013-04-22T19:48:16Z', 'target' : 'SDSS J205746.06+0035', 'start' : '2013-04-22T14:11:36Z', 'l' : 49.16211224201047, 'source' : 'Fermi', 'ra' : 314.4416666666667, 'dec' : 0.5905555555555471 },
- { '_id' : 'XMM-Newton|0693741101', 'b' : -57.57866833591174, 'dec_str' : '-29d59m02.00s', 'ra_str' : '22h23m44.0s', 'end' : '2013-04-26T19:29:52Z', 'target' : '2PIGG_1671', 'start' : '2013-04-26T12:46:31Z', 'l' : 19.00484785637278, 'source' : 'Suzaku', 'ra' : 335.9333333333333, 'dec' : -29.98388888888888 },
- { '_id' : 'XMM-Newton|0693741201', 'b' : -56.48579396751591, 'dec_str' : '-25d59m54.00s', 'ra_str' : '22h21m5.00000000002s', 'end' : '2013-04-27T19:16:59Z', 'target' : '2PIGG_1752', 'start' : '2013-04-27T14:33:38Z', 'l' : 26.13387894691477, 'source' : 'NuSTAR', 'ra' : 335.2708333333334, 'dec' : -25.99833333333333 },
- { '_id' : 'XMM-Newton|0693850701', 'b' : 58.00496444681011, 'dec_str' : '+58d25m05.00s', 'ra_str' : '13h29m38.0s', 'end' : '2013-04-29T09:10:00Z', 'target' : 'NGC 5204', 'start' : '2013-04-29T04:10:00Z', 'l' : 113.4946376229472, 'source' : 'INTEGRAL', 'ra' : 202.4083333333333, 'dec' : 58.41805555555555 },
- { '_id' : 'XMM-Newton|0693851401', 'b' : 58.00496444681011, 'dec_str' : '+58d25m05.00s', 'ra_str' : '13h29m38.0s', 'end' : '2013-04-21T09:47:13Z', 'target' : 'NGC 5204', 'start' : '2013-04-21T04:47:13Z', 'l' : 113.4946376229472, 'source' : 'RXTE', 'ra' : 202.4083333333333, 'dec' : 58.41805555555555 }
-
-          ]
-    }*/
+   
     var kvp = {
       'XMM-Newton':'#007ab9',
       'Fermi':'#a10974',
@@ -119,9 +94,6 @@
         }
         return {'events': data};
     }
-
-
-
 
     // Timeline and eventSource1
     var tl;
@@ -170,9 +142,14 @@
                        // references in the data
         data = transformJSON(data);        
         eventSource1.loadJSON(data, url); // The data was stored into the
-                                                   // timeline_data variable.
+         
+         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
+           alert (evt.getDescription ());
+        }
+
         tl.layout(); // display the Timeline
     };
+
 
     // Resizing from distribution example
     var resizeTimerID = null;
