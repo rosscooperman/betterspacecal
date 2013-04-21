@@ -4,7 +4,7 @@ body {
 //  overflow: hidden;
 	background: #FFF; 
   color: #212121; 
-  font-family: helvetica, sans-serif;
+  font-family: 'PT Sans', helvetica, sans-serif;
 }
 
 
@@ -22,7 +22,7 @@ header {
   border-bottom: 1px solid #1300aa;
 }
 
-h1 {font-size: 4em;}
+h1 {font-size: 4em; font-family: 'Righteous', cursive;}
 
 .skymap {
   background: image-url('visible_sky.jpg') no-repeat;
@@ -43,6 +43,8 @@ h1 {font-size: 4em;}
 
 .target{
 	stroke: #000000;
+	cursor: hand;
+	cursor: pointer;
 }
 
 .XMM-Newton_marker{
