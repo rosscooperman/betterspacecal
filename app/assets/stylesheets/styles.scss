@@ -208,7 +208,11 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
 	fill: #c5f0ff;
 }
 
-#obsImage {
-  height: 100px;
-  width: 100px;
+#default-popup {
+  img {
+    height: 100px;
+    width: 100px;
+    float: left;
+    padding: 0 10px 10px 0;
+  }
 }

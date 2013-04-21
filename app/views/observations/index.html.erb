@@ -37,6 +37,16 @@
   <div id="coordinates"><span id="l_coord"></span> <span id="b_coord"></span> :coordinates</div>
 </div>
 
+<script id="modal-template" type="text/x-handlebars-template">
+  <h2>{{target}}</h2>
+  {{#if images}}
+    <a href="{{nedUrl}}" target="_blank"><img src="{{firstImage}}" alt="detailed image"></a>
+  {{/if}}
+  <div><strong>Source</strong> {{source}}</div>
+  <div><strong>Start</strong> {{formatTime start}}</div>
+  <div><strong>End</strong> {{formatTime end}}</div>
+  <button class="closeButton cf">Close</button>
+</script>
 
 <div class="container">
   <div class="inner">

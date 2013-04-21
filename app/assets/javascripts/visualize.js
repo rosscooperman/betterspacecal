@@ -63,24 +63,35 @@ function buildMap(){
 }
 
 
+Handlebars.registerHelper('firstImage', function() {
+  return this.images[0];
+});
+
+
+Handlebars.registerHelper('nedUrl', function() {
+  var encodedTarget = this.target.replace(/ /g, '+');
+  return "http://ned.ipac.caltech.edu/cgi-bin/imgdata?objname=" + encodedTarget;
+});
+
+
+Handlebars.registerHelper('formatTime', function(date) {
+  return strftime("%F @ %T", new Date(date));
+});
+
+
+var template = null;
 function showModal(d) {
-  $('#obsTarget').html(d["target"]);
-  $('#obsSource').html(d["source"]);
-  $('#obsStartDate').html(d["start"]);
-  $('#obsEndDate').html(d["end"]);
-  if (d['images'].length > 0) {
-    $('#obsImage').attr('src', d['images'][0]);
+  if (!template) {
+    template = Handlebars.compile($('#modal-template').html());
   }
-  else {
-    $('#obsImage').attr('src', '');
-  }
+  $('#default-popup').html(template(d));
 
   Avgrund.show( "#default-popup" );
 }
 
 
 $(function() {
-  $('.closeButton').click(function() { Avgrund.hide(); });
+  $('#default-popup').on('click', '.closeButton', function() { Avgrund.hide(); });
 });
 
 
