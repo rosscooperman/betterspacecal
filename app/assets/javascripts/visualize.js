@@ -45,7 +45,7 @@ function buildMap(){
                        .domain([minB,maxB])
                        .range([height,0]);
 
-  var xAxis = d3.svg.axis()
+  /*var xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient("bottom")
                     .ticks(19);  //Set rough # of ticks
@@ -54,7 +54,13 @@ function buildMap(){
   var yAxis = d3.svg.axis()
                     .scale(yScale)
                     .orient("left")
-                    .ticks(10);
+                    .ticks(10);*/
+
+	d3.select("#skymap_svg").on("mousemove",function(){
+		m_c=d3.mouse(this);
+		updateLocations([xScale.invert(m_c[0]),yScale.invert(m_c[1])]);
+	});
+
 
 }
 
@@ -72,9 +78,15 @@ $(function() {
   $('.closeButton').click(function() { Avgrund.hide(); });
 });
 
+
+function updateLocations(locations){
+	$("#l_coord").html("L: "+locations[0].toFixed(1)+", ");
+	$("#b_coord").html("B: "+locations[1].toFixed(1));
+}
+
 function drawLocs(coords){
   clearLocs();
-var overall_start=0;
+  var overall_start=0;
 	var max_date=0;
 
 	for(var i in coords){
