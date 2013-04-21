@@ -99,18 +99,14 @@ var overall_start=0;
 	        return yScale(d["b"]);
 	   })
 	   .attr("class",function(d){return "target "+d["source"]+"_marker";})
-	   .attr("r", 1)
+	   .attr("r", 0.5)
 		.transition()
-	   .attr("r",  10)
-	   .ease("linear")
+	   .attr("r", 5)
+	   .ease("elastic")
 	   .duration(1000)
 	   .delay(function(d) {
 	        return (d["secs"]-overall_start)*duration;
 	   })
-		.transition()
-	   .attr("r",  5)
-	   .ease("elastic")
-	   .duration(500);
 
 	 svg.selectAll("circle")
 	   .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
