@@ -110,7 +110,7 @@ function drawLocs(coords){
 	   .attr("cy", function(d) {
 	        return yScale(d["b"]);
 	   })
-	   .attr("class",function(d){return "target "+d["source"]+"_marker";})
+	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
 	   .attr("r", 0.5)
 		.transition()
 	   .attr("r", 5)
