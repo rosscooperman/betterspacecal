@@ -60,6 +60,9 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
               transition: all 0.2s ease-in;
     }
   }
+  input[type="date"]{
+    padding: 6px 8px;
+  }
   input[type="submit"] {
     margin-top: 36px;
     background: #42c657;
@@ -76,7 +79,7 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
   
   .opticals {
     width: 180px;
-    margin-top: 37px; 
+    margin-top: 36px; 
     margin-right:  16px;
     position: relative;
     input, label {float: left;}
