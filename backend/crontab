@@ -1,0 +1,3 @@
+# m h  dom mon dow   command
+*/5 * * * * /home/ubuntu/betterspacecal/backend/release.sh
+#42 * * * * /home/ubuntu/betterspacecal/backend/tweet.py
