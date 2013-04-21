@@ -21,8 +21,8 @@ col = db.schedules
 import datetime
 now = datetime.datetime.now()
 print "Checking for schedules defined " + str(now)
-for i in col.find({ "start": { "$lt": now}, "end": { "$gt": now}}):
-  tweet = 'The ' + i['source'] + ' satellite is now targetting ' + i['target'] + ' #myspacecal @SpaceApps'
+for i in col.find({ "start": { "$lt": now}, "end": { "$gt": now}, "tweet": { "$in" :[""]}}):
+  tweet = 'The ' + i['source'] + ' satellite is now targetting ' + i['target'] + ' http://http://spacecalnyc.com/ #myspacecal @SpaceApps'
   print tweet
   api.update_status(tweet)
   i['tweet']='Yes'
