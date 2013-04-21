@@ -84,7 +84,13 @@ function showModal(d) {
   if (!template) {
     template = Handlebars.compile($('#modal-template').html());
   }
-  $('#default-popup').html(template(d));
+
+  var popup = $('#default-popup');
+  popup.html(template(d));
+
+  var center = $(window).scrollTop() + ($(window).height() / 2);
+  var newTop = center - (popup.height() / 2);
+  popup.css({ top: newTop.toString() + 'px' });
 
   Avgrund.show( "#default-popup" );
 }
