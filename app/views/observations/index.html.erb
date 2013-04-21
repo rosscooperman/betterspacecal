@@ -1,21 +1,32 @@
 <div class="container filters">
-  <div class="inner">
-    <%= form_tag do %>
-      <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuStar", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
-        <%= label_tag('source[]', source) %>
-        <%= check_box_tag('source[]', source, true) %>
-      <% end %>
-
+  <div class="inner cf">
+    <%= form_tag :class => "cf" do %>
+      <div class="inputContainer opticals cf">
+        <div class="hotdrop"><span style="padding-left: 8px;">Select Source(s)</span>
+          <div class="opticalDrop cf">
+            <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuSTAR", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
+            <%= check_box_tag('source[]', source, true) %>
+              <%= label_tag('source[]', source) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="inputContainer">
       <%= label_tag(:target, "Target:") %>
       <%= text_field_tag(:target) %>
-
+      </div>  
+      <div class="inputContainer">    
       <%= label_tag(:start, "Start:") %>
       <%= content_tag(:input, nil, type: 'date', name: 'start', value: 1.week.ago.to_date) %>
-
+      </div>
+      <div class="inputContainer">     
       <%= label_tag(:end, "End:") %>
       <%= content_tag(:input, nil, type: 'date', name: 'start', value: 1.week.from_now.to_date) %>
-
+      </div>
+      <div class="inputContainer">
       <%= submit_tag("Filter", :id => "filter") %>
+      </div>
     <% end %>
   </div>
 </div>
@@ -23,7 +34,6 @@
 <div class="container skymap">
   <div class="inner"></div>
   <ul class="legend"></ul>
-
 </div>
 <h3><span id="l_coord"></span> <span id="b_coord"></span></h3>
 
