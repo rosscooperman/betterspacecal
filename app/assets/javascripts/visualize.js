@@ -168,7 +168,10 @@ function drawLocs(coords){
 	        return yScale(d["b"]);
 	   })
 	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
-     .attr("id", function(d){return d["_id"].toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');})
+     .attr("id", function(d){
+       var id = (d['_id'].$oid) ? 'id' + d['_id'].$oid : d['_id'];
+       return id.toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');
+     })
 	   .attr("r", 0.5)
 		.transition()
 	   .attr("r", 5)

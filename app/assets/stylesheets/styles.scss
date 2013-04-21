@@ -23,21 +23,21 @@ header {
   border-bottom: 1px solid #141414;
   background: #111;
   li {
-    display: inline-block; 
+    display: inline-block;
     margin-left: 8px;
     background: #222;
     padding: 8px 16px;
     cursor: pointer;
     -webkit-border-radius:2px; /* Saf3+, Chrome */
        -moz-border-radius:2px; /* FF1+ */
-            border-radius:2px; /* Opera 10.5, IE 9 */ 
+            border-radius:2px; /* Opera 10.5, IE 9 */
     span {color:#666;}
     a {text-decoration: none; color: #666;
       &:hover { color: #FFF;
       }
     }
-    &:hover { 
-      background: #42c657; 
+    &:hover {
+      background: #42c657;
       color: #FFF;
       -webkit-transition: all 0.2s ease-in;
          -moz-transition: all 0.2s ease-in;
@@ -159,11 +159,11 @@ h1 {font-size: 2em; font-family: 'Righteous', cursive;}
 #coordinates {
   color: #FFF;
   position: absolute;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   font-size: 12px;
   }
-  
+
 #faq {
   background: #101010;
   color: #b2b2b2;
@@ -175,17 +175,17 @@ h1 {font-size: 2em; font-family: 'Righteous', cursive;}
   .content {
     width: 640px;
     margin-right:40px;
-  } 
+  }
   .satinfo {
     width: 280px;
     margin-top: 48px;
     a {color: #b2b2b2;}
     ul {list-style-type: disc; margin-left: 20px;}
     li {line-height: 1.4em;}
-  } 
-}  
-  
-  
+  }
+}
+
+
 footer {
   font-size: 12px;
   padding: 20px;
