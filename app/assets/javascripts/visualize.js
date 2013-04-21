@@ -111,13 +111,12 @@ var overall_start=0;
 	   .attr("r",  5)
 	   .ease("elastic")
 	   .duration(500);
-	 
+
 	 svg.selectAll("circle")
 	   .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
-	   .append("title")
-   	   .text(function(d) {return d["target"]});
-
      .on("click", showModal)
+	   .append("title")
+     .text(function(d) {return d["target"]});
 
 }
 
