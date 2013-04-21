@@ -46,7 +46,7 @@ class FermiParser(BaseParser):
             else:
               end = datetime.strptime(info_1[6].text, self._datetime_format) + timedelta(hours=24)
             observation = {
-                '_id'     : self._telescope + '|' + info_1['6'].text
+                '_id'     : self._telescope + '|' + info_1['6'].text,
                 'source'  : self._telescope,
                 'target'  : info_1[0].find('a').text,
                 'ra'      : coords['ra_float'],
