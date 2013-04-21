@@ -60,19 +60,24 @@ function buildMap(){
 		m_c=d3.mouse(this);
 		updateLocations([xScale.invert(m_c[0]),yScale.invert(m_c[1])]);
 	});
-
-
 }
 
 
 function showModal(d) {
-  // alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);
   $('#obsTarget').html(d["target"]);
   $('#obsSource').html(d["source"]);
   $('#obsStartDate').html(d["start"]);
   $('#obsEndDate').html(d["end"]);
+  if (d['images'].length > 0) {
+    $('#obsImage').attr('src', d['images'][0]);
+  }
+  else {
+    $('#obsImage').attr('src', '');
+  }
+
   Avgrund.show( "#default-popup" );
 }
+
 
 $(function() {
   $('.closeButton').click(function() { Avgrund.hide(); });
