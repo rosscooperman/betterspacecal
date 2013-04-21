@@ -73,7 +73,7 @@
 </div><script>
     SimileAjax.History.enabled = false;
 
-   
+
     var kvp = {
       'XMM-Newton':'#007ab9',
       'Fermi':'#a10974',
@@ -88,15 +88,14 @@
       'Spitzer':'#c700b7'
     }
 
-    function transformJSON(data) {      
-      
+    function transformJSON(data) {
+
         for(var evt in data){
             data[evt].start = new Date(data[evt].start);
             data[evt].end = new Date(data[evt].end);
             data[evt].title = data[evt].target;
-            data[evt].description = data[evt].source;
-            data[evt].color = kvp[data[evt].source];            
-            
+            data[evt].description = data[evt]._id;
+            data[evt].color = kvp[data[evt].source];
         }
         return {'events': data};
     }
@@ -146,11 +145,12 @@
 
         var url = '.'; // The base url for image, icon and background image
                        // references in the data
-        data = transformJSON(data);        
+        data = transformJSON(data);
         eventSource1.loadJSON(data, url); // The data was stored into the
-         
-         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
-           alert (evt.getDescription ());
+
+        Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
+          var id     = evt.getDescription().toLowerCase().replace(/\|/, '-');
+          showModal(d3.select('#' + id).datum());
         }
 
         tl.layout(); // display the Timeline
