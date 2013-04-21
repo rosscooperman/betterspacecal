@@ -11,7 +11,7 @@ class ObservationsController < ApplicationController
     headers['Content-Disposition'] = "attachment; filename=\"export.txt\""
 
     observations = Observation.search(params).map do |o|
-      id = o['_id'].split('|'); id.shift; id = id.join('')
+      id = id.to_s.split('|'); id.shift; id = id.join('')
       "#{o['source']}\t#{id}\t#{o['target']}\t#{o['start'].to_i}\t#{o['end'].to_i}\t#{o['l']}\t#{o['b']}\t#{o['ra']}\t#{o['dec']}\t#{o['ra_str']}\t#{o['dec_str']}"
     end
 
