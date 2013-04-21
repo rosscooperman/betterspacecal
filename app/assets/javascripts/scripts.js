@@ -7,4 +7,6 @@ $(document).ready(function(){
       $(".opticalDrop").slideToggle(100)
     }
   );
+  var viewportHeight = $(window).height();
+  
 });

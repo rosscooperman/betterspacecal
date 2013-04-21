@@ -121,9 +121,18 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
     p {line-height: 1.6em; color: #FFF;}
 }
 
-.legend {position: absolute; top: 10px; left: 10px; font-size: 12px;
-  li {line-height: 1.6em;}}
 
+.legend {position: absolute; top: 10px; left: 10px; font-size: 12px; 
+  li {line-height: 1.6em;}
+}
+
+#coordinates {
+  color: #FFF;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 12px;
+  }
 
 
 /* d3 styles */
