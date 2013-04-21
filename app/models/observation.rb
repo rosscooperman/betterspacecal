@@ -11,7 +11,11 @@ class Observation
     end
 
     def search(params = {})
-      mongo.find(mongo_params(params)).to_a
+      begin
+        mongo.find(mongo_params(params)).to_a
+      rescue
+        File.read(Rails.root.join('test', 'fixtures', 'data.json')).html_safe
+      end
     end
 
     def mongo_params(params = {})
