@@ -4,7 +4,7 @@
       <div class="inputContainer opticals cf">
         <div class="hotdrop"><span style="padding-left: 8px;">Select Source(s)</span><span style=" float:right; text-align: right;">▾</span>
           <div class="opticalDrop cf">
-            <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuSTAR", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
+            <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuStar", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
             <%= check_box_tag('source[]', source, true) %>
               <%= label_tag('source[]', source) %>
             <% end %>
