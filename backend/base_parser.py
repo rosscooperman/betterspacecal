@@ -1,3 +1,4 @@
+import sys
 import time
 import pymongo
 import requests
@@ -65,3 +66,4 @@ class BaseParser:
   def _exit(self):
     if self._conn:
       self._conn.close()
+    sys.exit(0)
