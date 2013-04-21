@@ -24,10 +24,11 @@ def save_images(images):
   try:
     conn = pymongo.MongoClient()
     db = conn['spacecalnyc']
-    db.target_images.insert(images)
+    for target in images:
+      db.target_images.save(target)
     print time.asctime() + ' | INFO | Successfully saved images'
-  except:
-    print time.asctime() + ' | ERROR | Failed to save images to database'
+  except Exception as e:
+    print time.asctime() + ' | ERROR | Failed to save images to database' + str(e)
 
 
 def get_targets():
@@ -55,7 +56,7 @@ def get_images(target):
     if images:
       return {'_id': target, 'images': images}
     else:
-      print target
+      print 'No images for ' + target
       return None
   except Exception as e:
     print time.asctime() + ' | ERROR | Failed to get images for ' + target + '\n' + str(e)
