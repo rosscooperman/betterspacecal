@@ -36,8 +36,8 @@ class Observation
       target
     end
 
-    def filter_for_source(source)
-      source
+    def filter_for_source(sources)
+      { '$in' => sources }
     end
   end
 end

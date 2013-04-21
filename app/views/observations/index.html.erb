@@ -1,22 +1,10 @@
 <div class="container filters">
   <div class="inner">
     <%= form_tag do %>
-      <%= label_tag(:source, "Source") %>
-      <%=
-        select_tag(:source, options_for_select([
-          "XMM-Newton",
-          "Fermi",
-          "AGILE",
-          "Chandra",
-          "INTEGRAL",
-          "NuSTAR",
-          "RXTE",
-          "Suzaku",
-          "Swift",
-          "Herschel",
-          "Spitzer"
-        ]))
-      %>
+      <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuSTAR", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
+        <%= label_tag('source[]', source) %>
+        <%= check_box_tag('source[]', source, true) %>
+      <% end %>
 
       <%= label_tag(:target, "Target:") %>
       <%= text_field_tag(:target) %>
