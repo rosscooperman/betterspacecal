@@ -8,6 +8,7 @@ body {
 
 
 .container {width: 100%;
+  min-width: 980px;
   .inner {
     width: 980px;
     min-width: 980px;
@@ -149,10 +150,9 @@ h1 {font-size: 2em; font-family: 'Righteous', cursive;}
 #ledgend {
   background: #101010;
   border-bottom: 1px solid #141414;
-  padding: 4px;
-  span {font-size: 12px; line-height: 1.6em; color: #444; margin-right: 10px;}
+  span {font-size: 12px; line-height: 1.6em; color: #444; margin-right: 10px; margin-top: 4px;}
 }
-.legend {font-size: 12px; 
+.legend {font-size: 12px; padding: 4px;
   li {margin-right: 10px; display: inline-block; line-height: 1.6em;}
 }
 
@@ -163,6 +163,16 @@ h1 {font-size: 2em; font-family: 'Righteous', cursive;}
   right: 20px;
   font-size: 12px;
   }
+  
+footer {
+  font-size: 12px;
+  margin-top: 60px;
+  padding: 20px;
+  background: #101010;
+  color: #ccc;
+  text-align: center;
+  a {color: #ccc;}
+}
 
 
 /* d3 styles */
