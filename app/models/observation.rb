@@ -11,28 +11,33 @@ class Observation
     end
 
     def search(params = {})
-      mongo.find.to_a
+      mongo.find(mongo_params(params)).to_a
     end
 
-    def query_string(params = {})
-      params.map do |k, v|
+    def mongo_params(params = {})
+      params.inject({}) do |memo, (k, v)|
         begin
-          "#{k}=" + send(:"filterable_#{k}", v)
+          memo[k] = send(:"filter_for_#{k}", v) unless v.blank?
         rescue NoMethodError
         end
-      end.compact.join('&')
+        memo
+      end
     end
 
-    def filterable_start(date)
-      filterable_date(date)
+    def filter_for_start(date)
+      { '$gte' => Time.parse(date) }
     end
 
-    def filterable_end(date)
-      filterable_date(date)
+    def filter_for_end(date)
+      { '$lte' => Time.parse(date) }
     end
 
-    def filterable_date(date)
-      URI::encode(date.to_s)
+    def filter_for_target(target)
+      target
+    end
+
+    def filter_for_source(source)
+      source
     end
   end
 end
