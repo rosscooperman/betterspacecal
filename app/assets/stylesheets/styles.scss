@@ -19,15 +19,22 @@ header {
   text-align: center;
   color: #fff;
   padding: 2em 0;
-  border-bottom: 1px solid #212121;
+  border-bottom: 1px solid #141414;
   background: #111;
   li {
     display: inline-block; 
     margin-left: 8px;
     background: #222;
-    padding: 8px;
+    padding: 8px 16px;
     cursor: pointer;
+    -webkit-border-radius:2px; /* Saf3+, Chrome */
+       -moz-border-radius:2px; /* FF1+ */
+            border-radius:2px; /* Opera 10.5, IE 9 */ 
     span {color:#666;}
+    a {text-decoration: none; color: #666;
+      &:hover { color: #FFF;
+      }
+    }
     &:hover { 
       background: #42c657; 
       color: #FFF;
@@ -139,9 +146,14 @@ h1 {font-size: 2em; font-family: 'Righteous', cursive;}
     p {line-height: 1.6em; color: #FFF;}
 }
 
-
-.legend {position: absolute; top: 10px; left: 10px; font-size: 12px; 
-  li {line-height: 1.6em;}
+#ledgend {
+  background: #101010;
+  border-bottom: 1px solid #141414;
+  padding: 4px;
+  span {font-size: 12px; line-height: 1.6em; color: #444; margin-right: 10px;}
+}
+.legend {font-size: 12px; 
+  li {margin-right: 10px; display: inline-block; line-height: 1.6em;}
 }
 
 #coordinates {
