@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Betterspacecal</title>
+  <title>A Better Space Cal</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <script src="http://api.simile-widgets.org/timeline/2.3.1/timeline-api.js?bundle=true" type="text/javascript"></script>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  
+
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Righteous' rel='stylesheet' type='text/css'>
-  
+
 </head>
 <body>
 
   <div class="avgrund-contents">
-    <header class="container">
-      <h1>MyCalNYC</h1>
+    <header class="container cf">
+      <div class="inner">
+      <h1 class="fl">SpaceCalNYC</h1>
+      <ul style="float: right;">
+        <li id="filterdata">Filter Data</li>
+        <li id="satinfo"><span>Satellite Information</span></li>
+        <li><a href="https://twitter.com/spacecalnyc" target="_blank">@spacecalnyc</a></li>
+      </ul>
+      </div>
     </header>
     <%= yield %>
   </div>
@@ -23,17 +30,6 @@
 
   <!-- This is the modal -->
   <aside id="default-popup" class="avgrund-popup">
-    <h2 id="obsTarget"></h2>
-    <div>
-      <strong>Source</strong> <span id="obsSource"></span>
-    </div>
-    <div>
-      <strong>Start</strong> <span id="obsStartDate"></span>
-    </div>
-    <div>
-      <strong>End</strong> <span id="obsEndDate"></span>
-    </div>
-    <button class="closeButton">Close</button>
   </aside>
 </body>
 </html>

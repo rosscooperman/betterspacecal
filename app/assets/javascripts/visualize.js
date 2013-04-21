@@ -60,23 +60,55 @@ function buildMap(){
 		m_c=d3.mouse(this);
 		updateLocations([xScale.invert(m_c[0]),yScale.invert(m_c[1])]);
 	});
-
-
 }
 
 
+Handlebars.registerHelper('firstImage', function() {
+  return this.images[0];
+});
+
+
+Handlebars.registerHelper('nedUrl', function() {
+  var encodedTarget = this.target.replace(/ /g, '+');
+  return "http://ned.ipac.caltech.edu/cgi-bin/imgdata?objname=" + encodedTarget;
+});
+
+
+Handlebars.registerHelper('formatTime', function(date) {
+  return strftime("%F @ %T", new Date(date));
+});
+
+
+var template = null;
 function showModal(d) {
-  // alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);
-  $('#obsTarget').html(d["target"]);
-  $('#obsSource').html(d["source"]);
-  $('#obsStartDate').html(d["start"]);
-  $('#obsEndDate').html(d["end"]);
+  if (!template) {
+    template = Handlebars.compile($('#modal-template').html());
+  }
+  $('#default-popup').html(template(d));
+
   Avgrund.show( "#default-popup" );
 }
 
+
 $(function() {
-  $('.closeButton').click(function() { Avgrund.hide(); });
+  $('#default-popup').on('click', '.closeButton', function() { Avgrund.hide(); });
 });
+
+
+function growCircle(d) {
+  d3.select('#' + $(this).attr('id'))
+    .transition()
+    .attr('r', 7)
+    .duration(100);
+}
+
+
+function shrinkCircle(d) {
+  d3.select('#' + $(this).attr('id'))
+    .transition()
+    .attr('r', 5)
+    .duration(100);
+}
 
 
 function updateLocations(locations){
@@ -111,6 +143,7 @@ function drawLocs(coords){
 	        return yScale(d["b"]);
 	   })
 	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
+     .attr("id", function(d){return d["_id"].toLowerCase().replace(/\|/, '-');})
 	   .attr("r", 0.5)
 		.transition()
 	   .attr("r", 5)
@@ -123,6 +156,8 @@ function drawLocs(coords){
 	 svg.selectAll("circle")
 	   .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
      .on("click", showModal)
+     .on("mouseover", growCircle)
+     .on("mouseout", shrinkCircle)
 	   .append("title")
      .text(function(d) {return d["target"]});
 
@@ -143,6 +178,8 @@ function getFilters(){
 
 function fetchData(){
   $.getJSON(document.location, getFilters(), function(data, status, xhr) {
+    // data == the json
+    initTimeline(data);
     drawLocs(data);
   });
 }

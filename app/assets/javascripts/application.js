@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require d3
 //= require avgrund
+//= require handlebars
+//= require strftime
 //= require_tree .

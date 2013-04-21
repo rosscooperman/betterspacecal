@@ -1,8 +1,8 @@
 html,
 body {
 	height: 100%;
-	background: #FFF; 
-  color: #212121; 
+	background: #FFF;
+  color: #212121;
   font-family: 'PT Sans', helvetica, sans-serif;
 }
 
@@ -19,14 +19,39 @@ header {
   text-align: center;
   color: #fff;
   padding: 2em 0;
-  border-bottom: 1px solid #212121;
+  border-bottom: 1px solid #141414;
   background: #111;
+  li {
+    display: inline-block; 
+    margin-left: 8px;
+    background: #222;
+    padding: 8px 16px;
+    cursor: pointer;
+    -webkit-border-radius:2px; /* Saf3+, Chrome */
+       -moz-border-radius:2px; /* FF1+ */
+            border-radius:2px; /* Opera 10.5, IE 9 */ 
+    span {color:#666;}
+    a {text-decoration: none; color: #666;
+      &:hover { color: #FFF;
+      }
+    }
+    &:hover { 
+      background: #42c657; 
+      color: #FFF;
+      -webkit-transition: all 0.2s ease-in;
+         -moz-transition: all 0.2s ease-in;
+           -o-transition: all 0.2s ease-in;
+              transition: all 0.2s ease-in;
+              span{color:#FFF;}
+      }
+    }
 }
 
-h1 {font-size: 4em; font-family: 'Righteous', cursive;}
+h1 {font-size: 2em; font-family: 'Righteous', cursive;}
 
 
 .filters {
+  display: none;
   padding: 1em 0 2em 0;
   color: #cfcfcf;
   background: #333;
@@ -40,25 +65,28 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
   label, input {display: block;}
   label {margin: 8px;}
   input {
-    border: 1px solid #111; 
+    border: 1px solid #111;
     padding: 8px;
-    width: 166px; 
-    background: #cfcfcf; 
+    width: 166px;
+    background: #cfcfcf;
     -webkit-border-radius:2px; /* Saf3+, Chrome */
        -moz-border-radius:2px; /* FF1+ */
             border-radius:2px; /* Opera 10.5, IE 9 */
     -webkit-transition: all 0.4s ease-out;
-       -moz-transition: all 0.4s ease-out; 
-         -o-transition: all 0.4s ease-out; 
+       -moz-transition: all 0.4s ease-out;
+         -o-transition: all 0.4s ease-out;
             transition: all 0.4s ease-out;
     &:focus {
       background: #FFF;
       outline: 0;
       -webkit-transition: all 0.2s ease-in;
-         -moz-transition: all 0.2s ease-in; 
-           -o-transition: all 0.2s ease-in; 
+         -moz-transition: all 0.2s ease-in;
+           -o-transition: all 0.2s ease-in;
               transition: all 0.2s ease-in;
     }
+  }
+  input[type="date"]{
+    padding: 6px 8px;
   }
   input[type="submit"] {
     margin-top: 36px;
@@ -71,12 +99,12 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
             color: white;
   &:hover {
     background: #27b63e;
-    } 
+    }
   }
-  
+
   .opticals {
     width: 180px;
-    margin-top: 37px; 
+    margin-top: 36px;
     margin-right:  16px;
     position: relative;
     input, label {float: left;}
@@ -86,14 +114,15 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
     }
     label {width: 132px;}
     .opticalDrop {
-      display: none; 
-      position:absolute; 
+      display: none;
+      position:absolute;
       padding-left: 8px;
       top: 36px;
       background: #121212;
       color:#cfcfcf;
+      z-index: 10;
       }
-    .hotdrop { 
+    .hotdrop {
       border: 1px solid #111;
       padding: 8px 8px 8px 0;
       cursor: pointer;
@@ -117,9 +146,23 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
     p {line-height: 1.6em; color: #FFF;}
 }
 
-.legend {position: absolute; top: 10px; left: 10px; font-size: 12px; 
-  li {line-height: 1.6em;}}
+#ledgend {
+  background: #101010;
+  border-bottom: 1px solid #141414;
+  padding: 4px;
+  span {font-size: 12px; line-height: 1.6em; color: #444; margin-right: 10px;}
+}
+.legend {font-size: 12px; 
+  li {margin-right: 10px; display: inline-block; line-height: 1.6em;}
+}
 
+#coordinates {
+  color: #FFF;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 12px;
+  }
 
 
 /* d3 styles */
@@ -195,4 +238,11 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
 	fill: #c5f0ff;
 }
 
-
+#default-popup {
+  img {
+    height: 100px;
+    width: 100px;
+    float: left;
+    padding: 0 10px 10px 0;
+  }
+}
