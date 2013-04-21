@@ -108,6 +108,7 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
 
 
 .skymap {
+  position: relative;
   background: image-url('visible_sky.jpg') no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -115,6 +116,11 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
     background-size: cover;
     p {line-height: 1.6em; color: #FFF;}
 }
+
+.legend {position: absolute; top: 10px; left: 10px; font-size: 12px; 
+  li {line-height: 1.6em;}}
+
+
 
 /* d3 styles */
 .fermi {
