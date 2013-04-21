@@ -127,6 +127,7 @@ function drawLocs(coords){
 	        return yScale(d["b"]);
 	   })
 	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
+   	   .attr("id", function(d){return d["ra_str"]+"_"+d["dec_str"];})
 	   .attr("r", 0.5)
 		.transition()
 	   .attr("r", 5)
