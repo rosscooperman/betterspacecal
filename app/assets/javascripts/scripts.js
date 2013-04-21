@@ -1,4 +1,11 @@
 $(document).ready(function(){
+  
+  // show/hide filter fields
+  $('#filterdata').click(function(){
+    $('.filters').slideToggle();
+  });
+  
+  // dropdown functionality on the filters
   $(".hotdrop").hover(
     function () {
       $(".opticalDrop").slideToggle(300)

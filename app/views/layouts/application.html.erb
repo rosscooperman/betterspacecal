@@ -13,8 +13,14 @@
 <body>
 
   <div class="avgrund-contents">
-    <header class="container">
-      <h1>SpaceCalNYC</h1>
+    <header class="container cf">
+      <div class="inner">
+      <h1 class="fl">SpaceCalNYC</h1>
+      <ul style="float: right;">
+        <li id="filterdata">Filter Data</li>
+        <li id="satinfo"><span>Satellite Information</span></li>
+      </ul>
+      </div>
     </header>
     <%= yield %>
   </div>
