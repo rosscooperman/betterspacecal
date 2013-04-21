@@ -1,9 +1,9 @@
-html, 
+html,
 body {
 	height: 100%;
 //  overflow: hidden;
-	background: #FFF; 
-  color: #212121; 
+	background: #FFF;
+  color: #212121;
   font-family: 'PT Sans', helvetica, sans-serif;
 }
 
@@ -29,22 +29,65 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;   
+    background-size: cover;
     p {line-height: 1.6em; color: #FFF;}
 }
 
 /* d3 styles */
-.Fermi_marker{fill: #a10974;}
-.AGILE_marker{fill: #7dcd0d;}
-.Chandra_marker{fill: #26a100;}
-.INTEGRAL_marker{fill: #dadd00;}
-.NuSTAR_marker{fill: #28ced4;}
-.RXTE_marker{fill: #ffb629;}
-.Suzaku_marker{fill: #df5400;}
-.Swift_marker{fill: #ff3838;}
-.Herschel_marker{fill: #2c41de;}
-.Spitzer_marker{fill: #c700b7;}
-.XMM-Newton_marker{fill: #007ab9;}
+.fermi {
+  fill: #a10974;
+  color: #a10974;
+}
+
+.agile {
+  fill: #7dcd0d;
+  color: #7dcd0d;
+}
+
+.chandra {
+  fill: #26a100;
+  color: #26a100;
+}
+
+.integral {
+  fill: #dadd00;
+  color: #dadd00;
+}
+
+.nustar {
+  fill: #28ced4;
+  color: #28ced4;
+}
+
+.rxte {
+  fill: #ffb629;
+  color: #ffb629;
+}
+
+.suzaku {
+  fill: #df5400;
+  color: #df5400;
+}
+
+.swift {
+  fill: #ff3838;
+  color: #ff3838;
+}
+
+.herschel {
+  fill: #2c41de;
+  color: #2c41de;
+}
+
+.spitzer {
+  fill: #c700b7;
+  color: #c700b7;
+}
+
+.xmm-newton {
+  fill: #007ab9;
+  color: #007ab9;
+}
 
 .axis path,
 .axis line {
@@ -59,7 +102,7 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
 	cursor: pointer;
 }
 
-.XMM-Newton_marker{
+.XMM-Newton{
 	fill: #c5f0ff;
 }
 
