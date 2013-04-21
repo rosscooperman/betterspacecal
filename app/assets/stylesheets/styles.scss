@@ -34,6 +34,18 @@ h1 {font-size: 4em; font-family: 'Righteous', cursive;}
 }
 
 /* d3 styles */
+.Fermi_marker{fill: #a10974;}
+.AGILE_marker{fill: #7dcd0d;}
+.Chandra_marker{fill: #26a100;}
+.INTEGRAL_marker{fill: #dadd00;}
+.NuSTAR_marker{fill: #28ced4;}
+.RXTE_marker{fill: #ffb629;}
+.Suzaku_marker{fill: #df5400;}
+.Swift_marker{fill: #ff3838;}
+.Herschel_marker{fill: #2c41de;}
+.Spitzer_marker{fill: #c700b7;}
+.XMM-Newton_marker{fill: #007ab9;}
+
 .axis path,
 .axis line {
     fill: none;

@@ -10,10 +10,10 @@
       <%= text_field_tag(:target) %>
 
       <%= label_tag(:start, "Start:") %>
-      <%= text_field_tag(:start, 1.week.ago.to_date) %>
+      <%= content_tag(:input, nil, type: 'date', name: 'start', value: 1.week.ago.to_date) %>
 
       <%= label_tag(:end, "End:") %>
-      <%= text_field_tag(:end, 1.week.from_now.to_date) %>
+      <%= content_tag(:input, nil, type: 'date', name: 'start', value: 1.week.from_now.to_date) %>
 
       <%= submit_tag("Filter", :id => "filter") %>
     <% end %>
