@@ -54,7 +54,7 @@
     SimileAjax.History.enabled = false;
 
     // Events that will be loaded via loadJSON method
-    var timeline_data = {
+   /* var timeline_data = {
             'events' : [
             { '_id' : 'XMM-Newton|0411781701', 'b' : -52.25237677441478, 'dec_str' : '-30d13m19.00s', 'ra_str' : '21h58m54.0s', 'end' : '2013-04-30T19:15:35Z', 'target' : 'PKS2155-304 off-30', 'start' : '2013-04-29T15:43:55Z', 'l' : 17.7378438951983, 'source' : 'XMM-Newton', 'ra' : 329.725, 'dec' : -30.22194444444446 },
  { '_id' : 'XMM-Newton|0411782101', 'b' : -52.24561533954663, 'dec_str' : '-30d13m32.00s', 'ra_str' : '21h58m52.0s', 'end' : '2013-04-24T19:39:14Z', 'target' : 'PKS2155-304', 'start' : '2013-04-23T22:14:13Z', 'l' : 17.73069222055629, 'source' : 'XMM-Newton', 'ra' : 329.7166666666666, 'dec' : -30.22555555555554 },
@@ -78,7 +78,7 @@
  { '_id' : 'XMM-Newton|0693851401', 'b' : 58.00496444681011, 'dec_str' : '+58d25m05.00s', 'ra_str' : '13h29m38.0s', 'end' : '2013-04-21T09:47:13Z', 'target' : 'NGC 5204', 'start' : '2013-04-21T04:47:13Z', 'l' : 113.4946376229472, 'source' : 'RXTE', 'ra' : 202.4083333333333, 'dec' : 58.41805555555555 }
 
           ]
-    }
+    }*/
     var kvp = {
       'XMM-Newton':'#007ab9',
       'Fermi':'#a10974',
@@ -93,16 +93,17 @@
       'Spitzer':'#c700b7'
     }
 
-    function transformJSON(data) {
-      //events = [[]];
+    function transformJSON(data) {      
+      
         for(var evt in data){
             data[evt].start = new Date(data[evt].start);
             data[evt].end = new Date(data[evt].end);
             data[evt].title = data[evt].target;
             data[evt].description = data[evt].source;
-            data[evt].color = kvp[data[evt].source];
+            data[evt].color = kvp[data[evt].source];            
+            
         }
-
+        return {'events': data};
     }
 
 
@@ -113,7 +114,7 @@
     var eventSource1;
 
     // Initialize timeline and load data from variable `timeline_data`
-    window.onload = function() {
+    function initTimeline(data) {
 
         var tl_el = document.getElementById("tl");
         eventSource1 = new Timeline.DefaultEventSource();
@@ -153,8 +154,8 @@
 
         var url = '.'; // The base url for image, icon and background image
                        // references in the data
-        transformJSON(timeline_data.events);
-        eventSource1.loadJSON(timeline_data, url); // The data was stored into the
+        data = transformJSON(data);        
+        eventSource1.loadJSON(data, url); // The data was stored into the
                                                    // timeline_data variable.
         tl.layout(); // display the Timeline
     };

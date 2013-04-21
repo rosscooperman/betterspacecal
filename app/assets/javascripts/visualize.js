@@ -148,6 +148,8 @@ function getFilters(){
 
 function fetchData(){
   $.getJSON(document.location, getFilters(), function(data, status, xhr) {
+    // data == the json 
+    initTimeline(data);
     drawLocs(data);
   });
 }
