@@ -85,7 +85,7 @@
 
 <div class="conatiner">
 <footer>
-<div class="inner">  
+<div class="inner">
   <p>©2013. Created during the <a href="http://spaceappsnyc.com/" target="blank">Space Apps Challenge NYC</a>.</p>
 </div>
 </footer>
@@ -169,7 +169,7 @@
         eventSource1.loadJSON(data, url); // The data was stored into the
 
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
-          var id     = evt.getDescription().toLowerCase().replace(/\|/, '-');
+          var id = evt.getDescription().toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');
           showModal(d3.select('#' + id).datum());
         }
 

@@ -168,7 +168,7 @@ function drawLocs(coords){
 	        return yScale(d["b"]);
 	   })
 	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
-     .attr("id", function(d){return d["_id"].toLowerCase().replace(/\|/, '-');})
+     .attr("id", function(d){return d["_id"].toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');})
 	   .attr("r", 0.5)
 		.transition()
 	   .attr("r", 5)
@@ -179,7 +179,6 @@ function drawLocs(coords){
 	   })
 
 	 svg.selectAll("circle")
-	   .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
      .on("click", showModal)
      .on("mouseover", growCircle)
      .on("mouseout", shrinkCircle)
