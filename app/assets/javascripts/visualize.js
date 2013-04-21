@@ -95,6 +95,22 @@ $(function() {
 });
 
 
+function growCircle(d) {
+  d3.select('#' + $(this).attr('id'))
+    .transition()
+    .attr('r', 7)
+    .duration(100);
+}
+
+
+function shrinkCircle(d) {
+  d3.select('#' + $(this).attr('id'))
+    .transition()
+    .attr('r', 5)
+    .duration(100);
+}
+
+
 function updateLocations(locations){
 	$("#l_coord").html("L: "+locations[0].toFixed(1)+", ");
 	$("#b_coord").html("B: "+locations[1].toFixed(1));
@@ -127,7 +143,7 @@ function drawLocs(coords){
 	        return yScale(d["b"]);
 	   })
 	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
-   	   .attr("id", function(d){return d["ra_str"]+"_"+d["dec_str"];})
+     .attr("id", function(d){return d["_id"].toLowerCase().replace(/\|/, '-');})
 	   .attr("r", 0.5)
 		.transition()
 	   .attr("r", 5)
@@ -140,6 +156,8 @@ function drawLocs(coords){
 	 svg.selectAll("circle")
 	   .on("click",function(d){alert("Telescope:\t"+d["source"]+"\nFrom:\t\t"+d["start"]+"\nTo:\t\t\t"+d["end"]);})
      .on("click", showModal)
+     .on("mouseover", growCircle)
+     .on("mouseout", shrinkCircle)
 	   .append("title")
      .text(function(d) {return d["target"]});
 
@@ -160,7 +178,7 @@ function getFilters(){
 
 function fetchData(){
   $.getJSON(document.location, getFilters(), function(data, status, xhr) {
-    // data == the json 
+    // data == the json
     initTimeline(data);
     drawLocs(data);
   });
