@@ -201,6 +201,21 @@ footer {
   a {color: #ccc;}
 }
 
+.go-top {
+  position: fixed;
+  bottom: 1em;
+  right: 3em;
+  text-decoration: none;
+  color: white;
+  background-color: #1A1A1A;
+  font-size: 12px;
+  padding: 0.5em;
+  display: none;
+  &:hover {
+    background-color: #27b63e;
+  }
+}
+
 
 /* d3 styles */
 .fermi {
