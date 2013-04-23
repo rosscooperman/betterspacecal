@@ -83,7 +83,50 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
 }
 
 
+#ledgend {
+  padding: 6px 0 0 0;
+  background: #111;
+  border-top: 1px solid #141414;
+  border-bottom: 1px solid #F8AE23;
+  .btn {
+    padding: 6px 10px;
+    margin-right: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    background: #f1a008;
+    color: #121212;
+    text-shadow: 0px 1px 0px #fac054;
+    -webkit-border-radius: 2px 2px 0px 0px ;
+            border-radius: 2px 2px 0px 0px;
+    &:hover {background: #d08a07;}
+  }
+  span {
+    font-size: 13px;
+    line-height: 1.6em;
+    color: #c3c3c3;
+    margin-right: 0px;
+    margin-top: 4px;
+  }
+}
 
+.legend {
+  font-size: 13px;
+  padding: 4px 0 0 6px;
+
+  li {
+    margin-right: 10px;
+    display: inline-block;
+    line-height: 1.6em;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li a.hidden {
+    color: #666;
+  }
+}
 
 .filters {
   display: none;
@@ -175,54 +218,6 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
     -o-background-size: cover;
     background-size: cover;
     p {line-height: 1.6em; color: #FFF;}
-}
-
-#ledgend {
-  padding: 6px 0 0 0;
-  background: #111;
-  border-top: 1px solid #141414;
-  border-bottom: 1px solid #F8AE23;
-  .btn {
-    padding: 6px 10px;
-    margin-right: 16px;
-    font-size: 13px;
-    cursor: pointer;
-    background: #f1a008;
-    color: #121212;
-    text-shadow: 0px 1px 0px #fac054;
-//    -webkit-box-shadow:0 1px 0px 0px #111; /* Saf3.0+, Chrome */
-//       -moz-box-shadow:0 1px 0px 0px #111; /* FF3.5+ */
-//            box-shadow:0 1px 0px 0px #111; /* Opera 10.5, IE 9.0 */
-    -webkit-border-radius: 2px 2px 0px 0px ;
-            border-radius: 2px 2px 0px 0px;
-    &:hover {background: #d08a07;}
-  }
-  span {
-    font-size: 13px;
-    line-height: 1.6em;
-    color: #c3c3c3;
-    margin-right: 0px;
-    margin-top: 4px;
-  }
-}
-
-.legend {
-  font-size: 13px;
-  padding: 4px 0 0 6px;
-
-  li {
-    margin-right: 10px;
-    display: inline-block;
-    line-height: 1.6em;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  li a.hidden {
-    color: #666;
-  }
 }
 
 #coordinates {
