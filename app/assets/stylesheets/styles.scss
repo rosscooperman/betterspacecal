@@ -18,15 +18,28 @@ body {
   }
 }
 
+
+@mixin backgroundimage($deg,$color,$start,$colortwo,$end) {
+  background-image: -o-linear-gradient(      $deg, $color $start, $colortwo $end);
+  background-image: -moz-linear-gradient(    $deg, $color $start, $colortwo $end);
+  background-image: -webkit-linear-gradient( $deg, $color $start, $colortwo $end);
+  background-image: -ms-linear-gradient(     $deg, $color $start, $colortwo $end);
+  background-image: linear-gradient(         $deg, $color $start, $colortwo $end);
+} // @include backgroundimage(180deg, #212112 0%, #111 100%)
+
+
+@mixin radius($rad) {
+  -webkit-border-radius: $rad; /* Saf3+, Chrome */
+     -moz-border-radius: $rad; /* FF1+ */
+          border-radius: $rad; /* Opera 10.5, IE 9 */
+}
+
+
 header {
   text-align: center;
   color: #fff;
   padding: 1em 0;
-  background-image: -o-linear-gradient(      180deg, #212112 0%, #111 100%);
-  background-image: -moz-linear-gradient(    180deg, #212112 0%, #111 100%);
-  background-image: -webkit-linear-gradient( 180deg, #212112 0%, #111 100%);
-  background-image: -ms-linear-gradient(     180deg, #212112 0%, #111 100%);
-  background-image: linear-gradient(         180deg, #212112 0%, #111 100%);
+  @include backgroundimage(180deg, #212112, 0%, #111, 100%);
   -moz-box-shadow:    inset 0px 2px 0px 0 rgba(255,255,255,0.40);
   -webkit-box-shadow: inset 0px 2px 0px 0 rgba(255,255,255,0.40);
   box-shadow:         inset 0px 2px 0px 0 rgba(255,255,255,0.40);
@@ -54,9 +67,7 @@ header {
         -moz-box-shadow:    inset 0px 2px 0px 0 rgba(255,255,255,0.30);
         -webkit-box-shadow: inset 0px 2px 0px 0 rgba(255,255,255,0.30);
         box-shadow:         inset 0px 2px 0px 0 rgba(255,255,255,0.30);
-        -webkit-border-radius: 4px; /* Saf3+, Chrome */
-           -moz-border-radius: 4px; /* FF1+ */
-                border-radius: 4px; /* Opera 10.5, IE 9 */ 
+        @include radius(4px);
         &:hover {
           background: #4A94D8;  
         }
@@ -79,11 +90,7 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
   padding: 1em 0 2em 0;
   color: #cfcfcf;
   background: #333;
-  background-image: -o-linear-gradient(     0deg, #222 0%, #111 100%);
-  background-image: -moz-linear-gradient(   0deg, #222 0%, #111 100%);
-  background-image: -webkit-linear-gradient(0deg, #222 0%, #111 100%);
-  background-image: -ms-linear-gradient(    0deg, #222 0%, #111 100%);
-  background-image: linear-gradient(        0deg, #222 0%, #111 100%);
+  @include backgroundimage(0deg, #222, 0%, #111, 100%);
   border-bottom: 1px solid #212121;
   .inputContainer { float: left; width: 196px; }
   label, input {display: block;}
@@ -93,9 +100,7 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
     padding: 8px;
     width: 166px;
     background: #cfcfcf;
-    -webkit-border-radius:2px; /* Saf3+, Chrome */
-       -moz-border-radius:2px; /* FF1+ */
-            border-radius:2px; /* Opera 10.5, IE 9 */
+    @include radius(2px);
     -webkit-transition: all 0.4s ease-out;
        -moz-transition: all 0.4s ease-out;
          -o-transition: all 0.4s ease-out;
@@ -188,8 +193,6 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
     -webkit-box-shadow:0 1px 0px 0px #111; /* Saf3.0+, Chrome */
        -moz-box-shadow:0 1px 0px 0px #111; /* FF3.5+ */
             box-shadow:0 1px 0px 0px #111; /* Opera 10.5, IE 9.0 */
-        filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=0, Color='#ffffff'); /* IE6,IE7 */
-    -ms-filter:"progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=0, Color='#ffffff')"; /* IE8 */ 
     -webkit-border-radius: 0px 0px 2px 2px;
             border-radius: 0px 0px 2px 2px;
     &:hover {background: #d08a07;}
@@ -224,7 +227,9 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
   h3 {font-size: 16px; line-height: 1.6em;}
   h4 {font-size: 16px; margin-bottom: 0.375em;}
   p { font-size: 15px; line-height: 1.8em; margin-bottom: 1.675em;}
-  a {color: #1F517E;}
+  a {color: #1F517E;
+    &:hover { color: #153755;}
+  }
   .content {
     width: 640px;
     margin-right:40px;
@@ -234,13 +239,15 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
     margin-top: 48px;
     ul {list-style-type: disc; margin-left: 20px;}
     li {line-height: 1.4em;}
-    a {color: #212121;}
+    a {color: #212121;
+      &:hover {color: #1F517E;}
+    }
   }
 }
 
 
 footer {
-  font-size: 12px;
+  font-size: 13px;
   padding: 20px;
   background: #101010;
   color: #ccc;
@@ -260,9 +267,7 @@ a.go-top{ font-size: 18px;}
   font-size: 12px;
   padding: 0.675em 1em;
   display: none;
-  -webkit-border-radius:4px; /* Saf3+, Chrome */
-     -moz-border-radius:4px; /* FF1+ */
-          border-radius:4px; /* Opera 10.5, IE 9 */ 
+  @include radius(4px);
   &:hover {
     background-color: #27b63e;
   }
@@ -348,6 +353,7 @@ a.go-top{ font-size: 18px;}
 #default-popup {
    z-index: 10;
    line-height: 1.6em;
+   font-size: 14px;
    h2 {margin-bottom: 0.5em;}
   img {
     height: 100px;
@@ -366,7 +372,7 @@ a.go-top{ font-size: 18px;}
     -moz-box-shadow:    inset 0px 2px 0px 0 rgba(255,255,255,0.30);
     -webkit-box-shadow: inset 0px 2px 0px 0 rgba(255,255,255,0.30);
     box-shadow:         inset 0px 2px 0px 0 rgba(255,255,255,0.30);
-    -webkit-border-radius: 4px; /* Saf3+, Chrome */
-       -moz-border-radius: 4px; /* FF1+ */
-            border-radius: 4px; /* Opera 10.5, IE 9 */}
+    @include radius(4px);
+    &:hover {background: #4A94D8; }
+  }
 }
