@@ -91,7 +91,9 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
   color: #cfcfcf;
   background: #333;
   @include backgroundimage(0deg, #222, 0%, #111, 100%);
-  border-bottom: 1px solid #212121;
+  border-bottom: 1px solid #000;
+  -webkit-box-shadow: inset 0px -2px 2px 0px #111111;
+          box-shadow: inset 0px -2px 2px 0px #111111;
   .inputContainer { float: left; width: 196px; }
   label, input {display: block;}
   label {margin: 8px;}
@@ -176,12 +178,10 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
 }
 
 #ledgend {
-  padding: 0 0 6px 0;
+  padding: 6px 0 0 0;
   background: #111;
-  -moz-box-shadow:    0px -1px 0px 0 #F8AE23;
-  -webkit-box-shadow: 0px -1px 0px 0 #F8AE23;
-  box-shadow:         0px -1px 0px 0 #F8AE23;
-  border-bottom: 1px solid #141414;
+  border-top: 1px solid #141414;
+  border-bottom: 1px solid #F8AE23;
   .btn {
     padding: 6px 10px;
     margin-right: 16px;
@@ -190,11 +190,11 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
     background: #f1a008;
     color: #121212;
     text-shadow: 0px 1px 0px #fac054;
-    -webkit-box-shadow:0 1px 0px 0px #111; /* Saf3.0+, Chrome */
-       -moz-box-shadow:0 1px 0px 0px #111; /* FF3.5+ */
-            box-shadow:0 1px 0px 0px #111; /* Opera 10.5, IE 9.0 */
-    -webkit-border-radius: 0px 0px 2px 2px;
-            border-radius: 0px 0px 2px 2px;
+//    -webkit-box-shadow:0 1px 0px 0px #111; /* Saf3.0+, Chrome */
+//       -moz-box-shadow:0 1px 0px 0px #111; /* FF3.5+ */
+//            box-shadow:0 1px 0px 0px #111; /* Opera 10.5, IE 9.0 */
+    -webkit-border-radius: 2px 2px 0px 0px ;
+            border-radius: 2px 2px 0px 0px;
     &:hover {background: #d08a07;}
   }
   span {
@@ -202,13 +202,13 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
     line-height: 1.6em;
     color: #c3c3c3;
     margin-right: 0px;
-    margin-top: 6px;
+    margin-top: 4px;
   }
 }
 
 .legend {
   font-size: 13px;
-  padding: 6px 0 4px 6px;
+  padding: 4px 0 0 6px;
 
   li {
     margin-right: 10px;
