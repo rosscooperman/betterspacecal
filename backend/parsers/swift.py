@@ -33,7 +33,7 @@ class FermiParser(BaseParser):
                 coords = None
               if coords:
                 observation = {
-  #                '_id'     : self._telescope + '|' + info[2].text.replace('&nbsp;','') + '|' + info[3].text.replace('&nbsp;',''),
+                  '_id'     : self._telescope + '|' + info[2].text.replace('&nbsp;','') + '|' + info[3].text.replace('&nbsp;',''),
                   'source'  : self._telescope,
                   'target'  : info[4].text.replace('&nbsp;',''),
                   'ra'      : coords['ra_float'],
