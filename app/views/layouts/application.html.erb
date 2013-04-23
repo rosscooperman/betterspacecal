@@ -29,10 +29,9 @@
       <div class="inner">
         <h1 class="fl", id="main_title"><%= link_to 'SpaceCalNYC', root_path %></h1>
       <ul style="float: right;">
-        <li id="filterdata">Filter Data</li>
-        <li><%= link_to 'Export Data', export_observations_path, id: 'exportLink' %></li>
         <li id="satinfo"><a href="#faq" class="scrollto">Satellite Information</a></li>
         <li><a href="https://twitter.com/spacecalnyc" target="_blank">@spacecalnyc</a></li>
+        <li><%= link_to 'Export Data', export_observations_path, id: 'exportLink', :class => "btn" %></li>
       </ul>
       </div>
     </header>
