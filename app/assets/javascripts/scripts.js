@@ -10,7 +10,7 @@ $(document).ready(function(){
 
   $('.go-top').click(function(e) {
     e.preventDefault();
-    $('body').animate({scrollTop: 0}, 300);
+    $('body, html').animate({scrollTop: 0}, 300);
   });
 
   // Only show coordinates if the mouse is on the map
