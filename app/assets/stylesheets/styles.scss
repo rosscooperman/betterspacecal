@@ -285,7 +285,8 @@ a.go-top{ font-size: 18px;}
   display: none;
   @include radius(4px);
   &:hover {
-    background-color: #27b63e;
+    //background-color: #27b63e;
+    background-color: rgba(0,0,0,0.8);
   }
 }
 
