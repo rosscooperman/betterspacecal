@@ -1,17 +1,6 @@
 <div class="container filters">
   <div class="inner cf">
     <%= form_tag :class => "cf" do %>
-      <div class="inputContainer opticals cf">
-        <div class="hotdrop"><span style="padding-left: 8px;">Select Source(s)</span><span style=" float:right; text-align: right;">▾</span>
-          <div class="opticalDrop cf">
-            <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuStar", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
-            <%= check_box_tag('source[]', source, true) %>
-              <%= label_tag('source[]', source) %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
       <div class="inputContainer">
       <%= label_tag(:target, "Target:") %>
       <%= text_field_tag(:target) %>
@@ -30,11 +19,24 @@
     <% end %>
   </div>
 </div>
+
 <div id="ledgend" class="container">
   <div class="inner cf">
     <div id="filterdata" class="btn fl">Optional Filters</div>
-    <span class="fl">Satellite Legend: </span>
-    <ul class="legend fl"></ul>
+    <span class="fl">Satellite Legend:</span>
+    <ul class="legend fl">
+      <li><a href="#filter" class="xmm-newton">XMM-Netwon</a></li>
+      <li><a href="#filter" class="fermi">Fermi</a></li>
+      <li><a href="#filter" class="agile">AGILE</a></li>
+      <li><a href="#filter" class="chandra">Chandra</a></li>
+      <li><a href="#filter" class="integral">INTEGRAL</a></li>
+      <li><a href="#filter" class="nustar">NuStar</a></li>
+      <li><a href="#filter" class="rxte">RXTE</a></li>
+      <li><a href="#filter" class="suzaku">Suzaku</a></li>
+      <li><a href="#filter" class="swift">Swift</a></li>
+      <li><a href="#filter" class="herschel">Herschel</a></li>
+      <li><a href="#filter" class="spitzer">Spitzer</a></li>
+    </ul>
   </div>
 </div>
 
@@ -64,7 +66,8 @@
     <h3 style="margin: 20px 0 10px 0;">Calendar Range</h3>
     <div id="tl" style="height: 400px; border: 1px solid #aaa;"></div>
     <noscript>
-    This page uses Javascript to show you a Timeline. Please enable Javascript in your browser to see the full page. Thank you.
+      This page uses Javascript to show you a Timeline. Please enable Javascript in your browser to see the
+      full page. Thank you.
     </noscript>
   </div>
 </div>
