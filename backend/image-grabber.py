@@ -6,8 +6,8 @@ import requests
 from PIL import Image
 from BeautifulSoup import BeautifulSoup
 
-DOMAIN = 'http://ned.ipac.caltech.edu/'
-BASE_URL = DOMAIN + 'cgi-bin/imgdata?objname='
+DOMAIN = 'http://ned.ipac.caltech.edu'
+BASE_URL = DOMAIN + '/cgi-bin/imgdata?objname='
 
 def run():
   targets = get_targets()
@@ -35,8 +35,9 @@ def get_targets():
   try:
     conn = pymongo.MongoClient()
     db = conn['spacecalnyc']
-    targets = db.schedules.distinct('target')
-    return targets
+    all_targets = set(db.schedules.distinct('target'))
+    target_scraped = set(db.target_images.distinct('_id'))
+    return all_targets - target_scraped
   except Exception as e:
     print time.asctime() + ' | ERROR | Failed to get targets from database'
     return None
