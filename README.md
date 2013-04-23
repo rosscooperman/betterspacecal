@@ -16,12 +16,17 @@ Combine the past and future time schedules of satellites into a common calendar 
 
 ## Stack
 
-Amazon EC2 - http://aws.amazon.com/ec2/
-Amazon Route 53 - http://aws.amazon.com/route53/
-MongoDB - http://www.mongodb.org/
-Ruby on Rails - http://rubyonrails.org/
-Python - http://python.org/
-D3 - http://d3js.org/
+* Amazon AWS EC2 - http://aws.amazon.com/ec2/
+* Amazon Route 53 - http://aws.amazon.com/route53/
+* MongoDB - http://www.mongodb.org/
+* Ruby on Rails - http://rubyonrails.org/
+* Python - http://python.org/
+* D3 - http://d3js.org/
+* Twitter API - http://dev.twitter.com
+* 
+
+## Data Sources
+* See - http://spaceappschallenge.org/challenge/my-space-cal/
 
 ## Team
 * Jonathan Roberts
