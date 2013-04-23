@@ -3,6 +3,7 @@ body {
 	height: 100%;
 	background: #FFF;
   color: #212121;
+  font-size: 16px;
   font-family: 'PT Sans', helvetica, sans-serif;
 }
 
@@ -19,36 +20,51 @@ body {
 header {
   text-align: center;
   color: #fff;
-  padding: 2em 0;
-  border-bottom: 1px solid #141414;
-  background: #111;
+  padding: 1em 0;
+  background-image: -o-linear-gradient(      180deg, #212112 0%, #111 100%);
+  background-image: -moz-linear-gradient(    180deg, #212112 0%, #111 100%);
+  background-image: -webkit-linear-gradient( 180deg, #212112 0%, #111 100%);
+  background-image: -ms-linear-gradient(     180deg, #212112 0%, #111 100%);
+  background-image: linear-gradient(         180deg, #212112 0%, #111 100%);
+  -moz-box-shadow:    inset 0px 2px 0px 0 rgba(255,255,255,0.40);
+  -webkit-box-shadow: inset 0px 2px 0px 0 rgba(255,255,255,0.40);
+  box-shadow:         inset 0px 2px 0px 0 rgba(255,255,255,0.40);
   li {
     display: inline-block;
     margin-left: 8px;
-    background: #222;
-    padding: 8px 16px;
+    padding: 8px;
     cursor: pointer;
-    -webkit-border-radius:2px; /* Saf3+, Chrome */
-       -moz-border-radius:2px; /* FF1+ */
-            border-radius:2px; /* Opera 10.5, IE 9 */
-    span {color:#666;}
-    a {text-decoration: none; color: #666;
-      &:hover { color: #FFF;
+    font-size: 13px;
+    //span {color:#666;}
+    a {
+      text-decoration: none; 
+      color: #c3c3c3;
+      &:hover { 
+        color: #FFF;
+        -webkit-transition: all 0.2s ease-in;
+           -moz-transition: all 0.2s ease-in;
+             -o-transition: all 0.2s ease-in;
+                transition: all 0.2s ease-in; 
+      }
+      &.btn {
+        padding: 6px 10px;
+        background: #1F517E;
+        color: #FFF;
+        -moz-box-shadow:    inset 0px 2px 0px 0 rgba(255,255,255,0.30);
+        -webkit-box-shadow: inset 0px 2px 0px 0 rgba(255,255,255,0.30);
+        box-shadow:         inset 0px 2px 0px 0 rgba(255,255,255,0.30);
+        -webkit-border-radius: 4px; /* Saf3+, Chrome */
+           -moz-border-radius: 4px; /* FF1+ */
+                border-radius: 4px; /* Opera 10.5, IE 9 */ 
+        &:hover {
+          background: #4A94D8;  
+        }
       }
     }
-    &:hover {
-      background: #42c657;
-      color: #FFF;
-      -webkit-transition: all 0.2s ease-in;
-         -moz-transition: all 0.2s ease-in;
-           -o-transition: all 0.2s ease-in;
-              transition: all 0.2s ease-in;
-              span{color:#FFF;}
-      }
-    }
+  }
 }
 
-h1 { font-size: 2em; font-family: 'Righteous', cursive;}
+h1 { font-size: 1.6875em; font-family: 'Righteous', cursive;}
 
 #main_title {
   a { text-decoration: none; color: white;}
@@ -154,11 +170,30 @@ h1 { font-size: 2em; font-family: 'Righteous', cursive;}
 }
 
 #ledgend {
-  background: #101010;
+  padding: 0 0 6px 0;
+  background: #111;
+  -moz-box-shadow:    0px -1px 0px 0 #F8AE23;
+  -webkit-box-shadow: 0px -1px 0px 0 #F8AE23;
+  box-shadow:         0px -1px 0px 0 #F8AE23;
   border-bottom: 1px solid #141414;
-  span {font-size: 12px; line-height: 1.6em; color: #444; margin-right: 10px; margin-top: 4px;}
+  .btn {
+    padding: 6px 10px;
+    margin-right: 16px;
+    font-size: 13px;
+    cursor: pointer;
+    background: #F8AE23; 
+    -webkit-border-radius: 0px 0px 2px 2px;
+            border-radius: 0px 0px 2px 2px;
+  }
+  span {
+    font-size: 12px; 
+    line-height: 1.6em; 
+    color: #c3c3c3; 
+    margin-right: 0px; 
+    margin-top: 6px;
+  }
 }
-.legend {font-size: 12px; padding: 4px;
+.legend {font-size: 12px; padding: 6px 0 4px 6px;
   li {margin-right: 10px; display: inline-block; line-height: 1.6em;}
 }
 
@@ -291,6 +326,8 @@ footer {
 }
 
 #default-popup {
+   z-index: 10;
+   line-height: 1.6em;
   img {
     height: 100px;
     width: 100px;
