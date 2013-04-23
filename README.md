@@ -27,7 +27,7 @@ D3 - http://d3js.org/
 * Jonathan Roberts
 * Tarun Kotia
 * Sushant Bhadkamkar
-* Ronald Bradford
+* [Ronald Bradford](http://ronaldbradford.com)
 * Brett Mascavage
 * Ross Cooperman
 * Johan Mena
