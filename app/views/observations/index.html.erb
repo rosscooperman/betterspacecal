@@ -1,17 +1,6 @@
 <div class="container filters">
   <div class="inner cf">
     <%= form_tag :class => "cf" do %>
-      <div class="inputContainer opticals cf">
-        <div class="hotdrop"><span style="padding-left: 8px;">Select Source(s)</span><span style=" float:right; text-align: right;">▾</span>
-          <div class="opticalDrop cf">
-            <% [ "XMM-Newton", "Fermi", "AGILE", "Chandra", "INTEGRAL", "NuStar", "RXTE", "Suzaku", "Swift", "Herschel", "Spitzer" ].each do |source| %>
-            <%= check_box_tag('source[]', source, true) %>
-              <%= label_tag('source[]', source) %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
       <div class="inputContainer">
       <%= label_tag(:target, "Target:") %>
       <%= text_field_tag(:target) %>
@@ -30,11 +19,25 @@
     <% end %>
   </div>
 </div>
+
 <div id="ledgend" class="container">
   <div class="inner cf">
     <div id="filterdata" class="btn fl">Optional Filters</div>
-    <span class="fl">Satellite Legend: </span>
-    <ul class="legend fl"></ul>
+    <span class="fl">Satellite Legend:</span>
+    <ul class="legend fl">
+      <li><a href="#filter" class="xmm-newton">XMM-Netwon</a></li>
+      <li><a href="#filter" class="fermi">Fermi</a></li>
+      <li><a href="#filter" class="agile">AGILE</a></li>
+      <li><a href="#filter" class="chandra">Chandra</a></li>
+      <li><a href="#filter" class="integral">INTEGRAL</a></li>
+      <li><a href="#filter" class="nustar">NuStar</a></li>
+      <li><a href="#filter" class="rxte">RXTE</a></li>
+      <li><a href="#filter" class="suzaku">Suzaku</a></li>
+      <li><a href="#filter" class="swift">Swift</a></li>
+      <li><a href="#filter" class="herschel">Herschel</a></li>
+      <li><a href="#filter" class="spitzer">Spitzer</a></li>
+      <li><a href="#filter" class="hubble">Hubble</a></li>
+    </ul>
   </div>
 </div>
 
@@ -64,7 +67,8 @@
     <h3 style="margin: 20px 0 10px 0;">Calendar Range</h3>
     <div id="tl" style="height: 400px; border: 1px solid #aaa;"></div>
     <noscript>
-    This page uses Javascript to show you a Timeline. Please enable Javascript in your browser to see the full page. Thank you.
+      This page uses Javascript to show you a Timeline. Please enable Javascript in your browser to see the
+      full page. Thank you.
     </noscript>
   </div>
 </div>
@@ -83,8 +87,8 @@
     <h4>What are they looking at?</h4>
     <p>Scientists around the world can reserve time on telescopes to look at objects they are interested in. This can range from a particular star, or a distant galaxy. Satellites can be re-targeted automatically to respond to a sudden event like a supernova. Click a target on the map above - if it's been observed before you'll see a picture. Click through to see more images of the same object.</p>
     <h4>What are RA and Dec, and l and b?</h4>
-    <p>Astronomers use a range of different coordinate systems to identify objects in the sky. In the map at the top of the page the points are plotted using l and b, the <a href="http://en.wikipedia.org/wiki/Galactic_coordinate_system">galactic longitude and latitude</a>. As with longitude and latitude on earth, l and b define the x and y location on a map, and like earth there is a galactic equator. This is the plane of the galaxy - visible as the bright line of stars, and corresponds to b=0. All astronomical coordinates increase to the left.</p>
-    <p><a href="http://en.wikipedia.org/wiki/Equatorial_coordinate_system">RA and Dec</a> refer to Right Ascension and Declination. Unlike l and b, these coordinates are defined with respect to earth - so Dec=0 corresponds to the projection of the earth's equator onto the sky, and Dec=90 is the direction of the earth's north pole.</p>
+    <p>Astronomers use a range of different coordinate systems to identify objects in the sky. In the map at the top of the page the points are plotted using l and b, the <a href="http://en.wikipedia.org/wiki/Galactic_coordinate_system" target="_blank">galactic longitude and latitude</a>. As with longitude and latitude on earth, l and b define the x and y location on a map, and like earth there is a galactic equator. This is the plane of the galaxy - visible as the bright line of stars, and corresponds to b=0. All astronomical coordinates increase to the left.</p>
+    <p><a href="http://en.wikipedia.org/wiki/Equatorial_coordinate_system" target="_blank">RA and Dec</a> refer to Right Ascension and Declination. Unlike l and b, these coordinates are defined with respect to earth - so Dec=0 corresponds to the projection of the earth's equator onto the sky, and Dec=90 is the direction of the earth's north pole.</p>
   </div>
 
     <div class="satinfo fl">
@@ -111,7 +115,7 @@
 <div class="container">
   <footer>
     <div class="inner">
-      <p>©2013. Created during the <a href="http://spaceappsnyc.com/" target="blank">Space Apps Challenge NYC</a>.</p>
+      <p>©2013. Created during the <a href="http://spaceappsnyc.com/" target="blank">Space Apps Challenge NYC</a>. Regarding questions or comments, feel free to <a href="mailto:contact@spacecalnyc.com">contact us</a>.</p>
     </div>
   </footer>
     <a href="#" class="go-top">↑</a>
