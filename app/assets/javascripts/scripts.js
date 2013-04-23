@@ -13,6 +13,15 @@ $(document).ready(function(){
     $('body').animate({scrollTop: 0}, 300);
   });
 
+  // Only show coordinates if the mouse is on the map
+  $('.skymap').mouseleave(function(e) {
+    $('#coordinates').hide();
+  });
+
+  $('.skymap').mouseenter(function(e) {
+    $('#coordinates').show();
+  });
+
   // show/hide filter fields
   $('#filterdata').click(function(){
     $('.filters').slideToggle();

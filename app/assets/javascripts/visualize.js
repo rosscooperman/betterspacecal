@@ -56,10 +56,10 @@ function buildMap(){
                     .orient("left")
                     .ticks(10);*/
 
-	d3.select("#skymap_svg").on("mousemove",function(){
-		m_c=d3.mouse(this);
-		updateLocations([xScale.invert(m_c[0]),yScale.invert(m_c[1])]);
-	});
+d3.select("#skymap_svg").on("mousemove",function(){
+  m_c=d3.mouse(this);
+  updateLocations([xScale.invert(m_c[0]),yScale.invert(m_c[1])]);
+});
 }
 
 
