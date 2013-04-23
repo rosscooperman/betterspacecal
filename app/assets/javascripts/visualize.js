@@ -81,7 +81,7 @@ Handlebars.registerHelper('formatTime', function(date) {
 
 function modalTop() {
   var center = $(window).scrollTop() + ($(window).height() / 2);
-  return (center - ($('#default-popup').height() / 2)).toString() + 'px';
+  return (center - ($('#default-popup').height() / 3)).toString() + 'px';
 }
 
 
