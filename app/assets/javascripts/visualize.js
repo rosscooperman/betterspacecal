@@ -69,7 +69,7 @@ Handlebars.registerHelper('firstImage', function() {
 
 
 Handlebars.registerHelper('nedUrl', function() {
-  var encodedTarget = this.target.replace(/ /g, '+');
+  var encodedTarget = encodeURIComponent(this.target);
   return "http://ned.ipac.caltech.edu/cgi-bin/imgdata?objname=" + encodedTarget;
 });
 
