@@ -23,19 +23,19 @@
   <div class="inner cf">
     <%= form_tag :class => "cf" do %>
       <div class="inputContainer">
-      <%= label_tag(:target, "Target:") %>
-      <%= text_field_tag(:target) %>
+        <%= label_tag(:target, "Target:") %>
+        <%= text_field_tag(:target) %>
       </div>
       <div class="inputContainer">
-      <%= label_tag(:start, "Start:") %>
-      <%= content_tag(:input, nil, type: 'date', name: 'start', value: 1.week.ago.to_date) %>
+        <%= label_tag(:start, "Start:") %>
+        <%= tag(:input, type: 'date', id: 'start', name: 'start', value: 1.week.ago.to_date) %>
       </div>
       <div class="inputContainer">
-      <%= label_tag(:end, "End:") %>
-      <%= content_tag(:input, nil, type: 'date', name: 'end', value: 1.week.from_now.to_date) %>
+        <%= label_tag(:end, "End:") %>
+        <%= tag(:input, type: 'date', id: 'end', name: 'end', value: 1.week.ago.to_date) %>
       </div>
       <div class="inputContainer">
-      <%= submit_tag("Filter", :id => "filter") %>
+        <%= submit_tag("Filter", :id => "filter") %>
       </div>
     <% end %>
   </div>
