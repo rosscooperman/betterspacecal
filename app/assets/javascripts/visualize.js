@@ -170,7 +170,7 @@ function drawLocs(coords){
 	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
      .attr("id", function(d){
        var id = (d['_id'].$oid) ? 'id' + d['_id'].$oid : d['_id'];
-       return id.toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');
+       return id.toLowerCase().replace(/\|/g, '-').replace(/[ \/]/g, '');
      })
 	   .attr("r", 0.5)
 		.transition()
