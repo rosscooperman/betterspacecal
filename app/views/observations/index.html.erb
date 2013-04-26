@@ -157,7 +157,7 @@
     var eventSource1;
     var _json;
     // Initialize timeline and load data from variable `timeline_data`
-    function initTimeline(data) {
+    function initTimeline(_data) {
 
         var tl_el = document.getElementById("tl");
         eventSource1 = new Timeline.DefaultEventSource();
@@ -196,13 +196,13 @@
         // create the Timeline
         tl = Timeline.create(tl_el, bandInfos, Timeline.HORIZONTAL);
 
-        tl.getBand(0).setMinVisibleDate(Timeline.DateTime.parseGregorianDateTime(data[0].start));
+        tl.getBand(0).setMinVisibleDate(Timeline.DateTime.parseGregorianDateTime(_data[0].start));
 
         var url = '.'; // The base url for image, icon and background image
                        // references in the data
-        data = transformJSON(data);
-        eventSource1.loadJSON(data, url); // The data was stored into the
-        _json = data;
+        _data = transformJSON(_data);
+        eventSource1.loadJSON(_data, url); // The data was stored into the
+        _json = _data;
         
 
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
