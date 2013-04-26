@@ -206,7 +206,7 @@
         
 
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
-          var id = evt.getDescription().toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');
+          var id = evt.getDescription().toLowerCase().replace(/\|/g, '-').replace(/[ \/]/g, '');
           showModal(d3.select('#' + id).datum());
         }
 
