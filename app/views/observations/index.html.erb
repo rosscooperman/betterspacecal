@@ -148,6 +148,7 @@
             data[evt].title = data[evt].target;
             data[evt].description = (data[evt]._id.$oid) ? 'id' + data[evt]._id.$oid : data[evt]._id;
             data[evt].color = kvp[data[evt].source];
+            if (data[evt].images) data[evt].image = data[evt].images[0];
         }
         return {'events': data};
     }
