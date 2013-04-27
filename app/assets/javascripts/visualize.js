@@ -56,10 +56,10 @@ function buildMap(){
                     .orient("left")
                     .ticks(10);*/
 
-	d3.select("#skymap_svg").on("mousemove",function(){
-		m_c=d3.mouse(this);
-		updateLocations([xScale.invert(m_c[0]),yScale.invert(m_c[1])]);
-	});
+d3.select("#skymap_svg").on("mousemove",function(){
+  m_c=d3.mouse(this);
+  updateLocations([xScale.invert(m_c[0]),yScale.invert(m_c[1])]);
+});
 }
 
 
@@ -69,7 +69,7 @@ Handlebars.registerHelper('firstImage', function() {
 
 
 Handlebars.registerHelper('nedUrl', function() {
-  var encodedTarget = this.target.replace(/ /g, '+');
+  var encodedTarget = encodeURIComponent(this.target);
   return "http://ned.ipac.caltech.edu/cgi-bin/imgdata?objname=" + encodedTarget;
 });
 
@@ -81,7 +81,7 @@ Handlebars.registerHelper('formatTime', function(date) {
 
 function modalTop() {
   var center = $(window).scrollTop() + ($(window).height() / 2);
-  return (center - ($('#default-popup').height() / 2)).toString() + 'px';
+  return (center - ($('#default-popup').height() / 3)).toString() + 'px';
 }
 
 
@@ -170,7 +170,7 @@ function drawLocs(coords){
 	   .attr("class",function(d){return "target "+d["source"].toLowerCase();})
      .attr("id", function(d){
        var id = (d['_id'].$oid) ? 'id' + d['_id'].$oid : d['_id'];
-       return id.toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');
+       return id.toLowerCase().replace(/\|/g, '-').replace(/[ \/]/g, '');
      })
 	   .attr("r", 0.5)
 		.transition()
@@ -206,8 +206,8 @@ function getFilters(){
 function fetchData(){
   $.getJSON(document.location, getFilters(), function(data, status, xhr) {
     // data == the json
-    initTimeline(data);
     drawLocs(data);
+    initTimeline(data);
   });
 }
 
