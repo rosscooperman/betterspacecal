@@ -3,15 +3,16 @@ import requests
 
 from base_parser import BaseParser
 from datetime import datetime
+from datetime import date
 from datetime import timedelta
 from BeautifulSoup import BeautifulSoup
 
 
-class FermiParser(BaseParser):
+class SwiftParser(BaseParser):
   def __init__(self):
     BaseParser.__init__(self)
     self._telescope = 'Swift'
-    self._data_url = 'https://www.swift.psu.edu/operations/obsSchedule.php?d=2013-04-21&a=0' # Changes per day
+    self._data_url = 'https://www.swift.psu.edu/operations/obsSchedule.php?a=0&d=' + date.today().strftime('%Y-%m-%d') # Changes per day
 
 
   def fetch_schedule(self):
@@ -57,5 +58,5 @@ class FermiParser(BaseParser):
 
 
 if __name__ == '__main__':
-  parser = FermiParser()
+  parser = SwiftParser()
   parser.run()

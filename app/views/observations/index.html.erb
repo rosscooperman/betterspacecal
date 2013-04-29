@@ -148,6 +148,7 @@
             data[evt].title = data[evt].target;
             data[evt].description = (data[evt]._id.$oid) ? 'id' + data[evt]._id.$oid : data[evt]._id;
             data[evt].color = kvp[data[evt].source];
+            if (data[evt].images) data[evt].image = data[evt].images[0];
         }
         return {'events': data};
     }
@@ -155,9 +156,9 @@
     // Timeline and eventSource1
     var tl;
     var eventSource1;
-
+    var _json;
     // Initialize timeline and load data from variable `timeline_data`
-    function initTimeline(data) {
+    function initTimeline(_data) {
 
         var tl_el = document.getElementById("tl");
         eventSource1 = new Timeline.DefaultEventSource();
@@ -192,22 +193,41 @@
         bandInfos[1].syncWith = 0;
         bandInfos[1].highlight = true;
 
+
         // create the Timeline
         tl = Timeline.create(tl_el, bandInfos, Timeline.HORIZONTAL);
 
+        tl.getBand(0).setMinVisibleDate(Timeline.DateTime.parseGregorianDateTime(_data[0].start));
+
         var url = '.'; // The base url for image, icon and background image
                        // references in the data
-        data = transformJSON(data);
-        eventSource1.loadJSON(data, url); // The data was stored into the
+        _data = transformJSON(_data);
+        eventSource1.loadJSON(_data, url); // The data was stored into the
+        _json = _data;
+        
 
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
-          var id = evt.getDescription().toLowerCase().replace(/\|/, '-').replace(/[ \/]/g, '');
+          var id = evt.getDescription().toLowerCase().replace(/\|/g, '-').replace(/[ \/]/g, '');
           showModal(d3.select('#' + id).datum());
         }
 
         tl.layout(); // display the Timeline
     };
 
+    function reloadTL(){               
+      var filteredData = [];     
+
+      for(var d in _json.events){
+        var b = _json.events[d];        
+        if ($('.'+b.source.toLowerCase()).hasClass('hidden')){
+           continue;
+         }
+         if (b) filteredData.push(b);
+      }   
+      eventSource1.clear();
+      eventSource1.loadJSON({'events': filteredData}, '.');
+
+    }
 
     // Resizing from distribution example
     var resizeTimerID = null;

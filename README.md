@@ -23,7 +23,7 @@ Combine the past and future time schedules of satellites into a common calendar 
 * Python - http://python.org/
 * D3 - http://d3js.org/
 * Twitter API - http://dev.twitter.com
-* 
+* Simile Timeline widget - www.simile-widgets.org/
 
 ## Data Sources
 * See - http://spaceappschallenge.org/challenge/my-space-cal/
