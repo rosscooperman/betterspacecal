@@ -12,7 +12,7 @@ NED_BASE_URL = NED_DOMAIN + '/cgi-bin/imgdata?objname='
 SIMBAD_DOMAIN = 'http://simbad.u-strasbg.fr'
 SIMBAD_BASE_URL = SIMBAD_DOMAIN + '/simbad/sim-id?Ident='
 SIMBAD_IMAGE_URL_FORMAT = 'http://alasky.u-strasbg.fr/cgi/simbad-thumbnails/get-thumbnail.py?oid=%s&size=200&legend=false'
-BULK_INSERTION_SIZE = 50  # Dump to Mongo after we parse N targets
+BULK_INSERTION_SIZE = 25  # Dump to Mongo after we parse N targets
 
 def run():
   targets = get_targets()
@@ -35,9 +35,11 @@ def save_images(images):
     conn = pymongo.MongoClient()
     db = conn['spacecalnyc']
     for target in images:
-      db.target_images.save(target)
-      # Update schedules with this target. image=True flag can be used for filtering in front-end
-      db.schedules.update({'target': target['_id']}, {'$set': {'image': True}}, multi=True)
+      # Update schedules with target images
+      db.schedules.update({'target': target['_id']},
+          {'$set': {'images': target['images'],
+                    'reference_url': target['reference_url']}},
+          multi=True)
     print time.asctime() + ' | INFO | Successfully saved images for ' + str(len(images)) + ' targets.'
   except Exception as e:
     print time.asctime() + ' | ERROR | Failed to save images to database' + str(e)
@@ -48,8 +50,12 @@ def get_targets():
     conn = pymongo.MongoClient()
     db = conn['spacecalnyc']
     all_targets = set(db.schedules.distinct('target'))
-    target_scraped = set(db.target_images.distinct('_id'))
-    return all_targets - target_scraped
+    scraped_targets = set(db.command(
+        {'distinct': 'schedules',
+          'query'  : {'images': {'$ne': None}},
+          'key'    : 'target'})
+        ['values'])
+    return all_targets - scraped_targets
   except Exception as e:
     print time.asctime() + ' | ERROR | Failed to get targets from database'
     return None
