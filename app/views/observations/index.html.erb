@@ -44,9 +44,11 @@
 
 <div class="container skymap">
   <div class="inner"></div>
+  <canvas id="sky" width=100 height=100>Your browser does not support html5 canvas. Please upgrade to a newer browser.</canvas>
+
   <div id="coordinates">
-    L: <span id="l_coord">-</span>,
-    B: <span id="b_coord">-</span>
+    l: <span id="l_coord">-</span>,
+    b: <span id="b_coord">-</span>
   </div>
 </div>
 
@@ -58,8 +60,8 @@
   <div><strong>Source</strong> {{source}}</div>
   <div><strong>Start</strong> {{formatTime start}}</div>
   <div><strong>End</strong> {{formatTime end}}</div>
-  <div><strong>RA:</strong> {{ra_str}}</div>
-  <div><strong>Dec:</strong> {{dec_str}}</div>
+  <div><strong>ra:</strong> {{ra_str}}</div>
+  <div><strong>dec:</strong> {{dec_str}}</div>
   <button class="closeButton cf">Close</button>
 </script>
 

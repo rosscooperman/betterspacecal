@@ -216,13 +216,27 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
 
 .skymap {
   position: relative;
-  background: image-url('visible_sky.jpg') no-repeat;
+  background-color: black;
+
+ /* background: image-url('visible_sky.jpg') no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover;*/
     p {line-height: 1.6em; color: #FFF;}
 }
+
+#skymap_svg{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.chart_background {
+  fill: none;
+  pointer-events: all;
+}
+
 
 #coordinates {
   color: #FFF;
