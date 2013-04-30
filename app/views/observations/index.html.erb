@@ -28,11 +28,11 @@
       </div>
       <div class="inputContainer">
         <%= label_tag(:start, "Start:") %>
-        <%= tag(:input, type: 'date', id: 'start', name: 'start', value: 1.week.ago.to_date) %>
+        <%= tag(:input, type: 'date', id: 'start', name: 'start', value: 1.day.ago.to_date) %>
       </div>
       <div class="inputContainer">
         <%= label_tag(:end, "End:") %>
-        <%= tag(:input, type: 'date', id: 'end', name: 'end', value: 1.week.from_now.to_date) %>
+        <%= tag(:input, type: 'date', id: 'end', name: 'end', value: 1.day.from_now.to_date) %>
       </div>
       <div class="inputContainer">
         <%= submit_tag("Filter", :id => "filter") %>
