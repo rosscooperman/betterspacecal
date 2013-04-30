@@ -216,12 +216,15 @@ function updateLocations(locations){
 }
 
 
+function clearLocs(){
+  svg.selectAll("circle")
+     .data([])
+     .exit()
+     .remove();
+}
+
 var loadedCoords = [];
 function drawLocs(coords) {
-  // svg.selectAll("circle")
-  //   .data([])
-  //   .exit()
-  //   .remove();
 
   var overall_start = 0,
       max_date      = 0;
@@ -259,7 +262,6 @@ function drawLocs(coords) {
       return "target " + d["source"].toLowerCase();
     })
     .attr("id", function(d) {
-      console.log(d['id']);
       return d['id'];
     })
     .attr("r", 0.5);
@@ -423,6 +425,8 @@ $(function() {
   initMap();
   fetchData();
   drawCanvas();
+
+  $("#filter").click(function(){clearLocs();});
 
   $('form').submit(function(e) {
     e.preventDefault();
