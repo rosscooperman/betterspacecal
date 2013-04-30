@@ -199,7 +199,7 @@ $(function() {
 function growCircle(d) {
   d3.select('#' + $(this).attr('id'))
     .transition()
-    .attr('r', 5)
+    .attr('r', 6)
     .duration(100);
 }
 
@@ -207,7 +207,7 @@ function growCircle(d) {
 function shrinkCircle(d) {
   d3.select('#' + $(this).attr('id'))
     .transition()
-    .attr('r', 3)
+    .attr('r', 4)
     .duration(100);
 }
 
@@ -270,7 +270,7 @@ function drawLocs(coords) {
     .attr("r", 0.5);
 
   selection.transition()
-    .attr("r", 3)
+    .attr("r", 4)
     .ease("elastic")
     .duration(1000)
     .delay(function(d) {
