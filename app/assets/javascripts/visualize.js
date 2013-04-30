@@ -114,7 +114,8 @@ function drawCanvas(c_in){
 	}
 	else{
 		if(c_in==null){
-			console.log("Something went wrong! Reset here");
+			// this shouldn't be called, but if it is, reset the zoom and redraw
+			resetZoom();
 		}
 		else{
 			ctx.drawImage(sky,c_in[0],c_in[1],c_in[2],c_in[3],c_in[4],c_in[5],c_in[6],c_in[7]);
@@ -143,8 +144,9 @@ Handlebars.registerHelper('firstImage', function() {
 
 
 Handlebars.registerHelper('nedUrl', function() {
-  var encodedTarget = encodeURIComponent(this.target);
-  return "http://ned.ipac.caltech.edu/cgi-bin/imgdata?objname=" + encodedTarget;
+  //var encodedTarget = encodeURIComponent(this.target);
+  //return "http://ned.ipac.caltech.edu/cgi-bin/imgdata?objname=" + encodedTarget;
+  return this.reference_url
 });
 
 
@@ -197,7 +199,7 @@ $(function() {
 function growCircle(d) {
   d3.select('#' + $(this).attr('id'))
     .transition()
-    .attr('r', 7)
+    .attr('r', 5)
     .duration(100);
 }
 
@@ -205,7 +207,7 @@ function growCircle(d) {
 function shrinkCircle(d) {
   d3.select('#' + $(this).attr('id'))
     .transition()
-    .attr('r', 5)
+    .attr('r', 3)
     .duration(100);
 }
 
@@ -268,7 +270,7 @@ function drawLocs(coords) {
     .attr("r", 0.5);
 
   selection.transition()
-    .attr("r", 5)
+    .attr("r", 3)
     .ease("elastic")
     .duration(1000)
     .delay(function(d) {
@@ -326,8 +328,6 @@ function getCanvasCoords(center,width){
 		ih=sky.height-iy;
 	}
 
-	console.log(overIX);
-
 	// set the canvas mapping	
 	var cx=0+imDistToCanvasDist(delIX);
 	var cy=0+imDistToCanvasDist(delIY);
@@ -339,9 +339,7 @@ function getCanvasCoords(center,width){
 
 function my_zoom(mouse_coords){
 	if(!(is_zoomed)){
-		console.log("zooming in");
 		var m=[xScale.invert(mouse_coords[0]),yScale.invert(mouse_coords[1])];
-		console.log(m);
 		
 		var t_width=$("#skymap_svg").parent().width();
 		box_width=60;
