@@ -126,6 +126,10 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
   li a.hidden {
     color: #666;
   }
+
+  .spinner {
+    padding-left: 1em;
+  }
 }
 
 .filters {
@@ -174,12 +178,6 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
     &:hover {
       background: #27b63e;
     }
-  }
-
-  img.spinner {
-    position: absolute;
-    right: 55px;
-    top: 46px;
   }
 
   .opticals {

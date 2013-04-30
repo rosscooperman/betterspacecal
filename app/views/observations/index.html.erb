@@ -16,6 +16,7 @@
       <li><a href="#filter" class="spitzer">Spitzer</a></li>
       <li><a href="#filter" class="hubble">Hubble</a></li>
     </ul>
+    <%= image_tag('spinner.gif', class: 'spinner', style: 'display: none;') %>
   </div>
 </div>
 
@@ -36,7 +37,6 @@
       </div>
       <div class="inputContainer">
         <%= submit_tag("Filter", :id => "filter") %>
-        <%= image_tag('spinner.gif', class: 'spinner', style: 'display: none;') %>
       </div>
     <% end %>
   </div>
