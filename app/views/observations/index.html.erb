@@ -36,6 +36,7 @@
       </div>
       <div class="inputContainer">
         <%= submit_tag("Filter", :id => "filter") %>
+        <%= image_tag('spinner.gif', class: 'spinner', style: 'display: none;') %>
       </div>
     <% end %>
   </div>
@@ -44,8 +45,8 @@
 <div class="container skymap">
   <div class="inner"></div>
   <div id="coordinates">
-    <span id="l_coord"></span>
-    <span id="b_coord"></span>
+    L: <span id="l_coord">-</span>,
+    B: <span id="b_coord">-</span>
   </div>
 </div>
 
@@ -204,7 +205,7 @@
         _data = transformJSON(_data);
         eventSource1.loadJSON(_data, url); // The data was stored into the
         _json = _data;
-        
+
 
         Timeline.OriginalEventPainter.prototype._showBubble = function(x, y, evt) {
           var id = evt.getDescription().toLowerCase().replace(/\|/g, '-').replace(/[ \/]/g, '');
@@ -214,16 +215,16 @@
         tl.layout(); // display the Timeline
     };
 
-    function reloadTL(){               
-      var filteredData = [];     
+    function reloadTL(){
+      var filteredData = [];
 
       for(var d in _json.events){
-        var b = _json.events[d];        
+        var b = _json.events[d];
         if ($('.'+b.source.toLowerCase()).hasClass('hidden')){
            continue;
          }
          if (b) filteredData.push(b);
-      }   
+      }
       eventSource1.clear();
       eventSource1.loadJSON({'events': filteredData}, '.');
 

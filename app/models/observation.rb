@@ -54,7 +54,21 @@ class Observation
     end
 
     def filter_for_source(sources)
-      { :'$in' => sources }
+      { :'$in' => map_source_names(sources) }
+    end
+
+  private
+
+    def map_source_names(names)
+      names.map do |name|
+        case name
+        when 'xmm-newton' then 'XMM-Newton'
+        when 'agile'      then 'AGILE'
+        when 'integral'   then 'INTEGRAL'
+        when 'rxte'       then 'RXTE'
+        else                   name.capitalize
+        end
+      end
     end
   end
 end

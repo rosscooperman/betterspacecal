@@ -137,7 +137,7 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
   border-bottom: 1px solid #000;
   -webkit-box-shadow: inset 0px -2px 2px 0px #111111;
           box-shadow: inset 0px -2px 2px 0px #111111;
-  .inputContainer { float: left; width: 196px; }
+  .inputContainer { float: left; width: 196px; position: relative; }
   label, input {display: block;}
   label {margin: 8px;}
   input {
@@ -162,18 +162,24 @@ h1 { font-size: 1.6875em; font-family: 'Righteous', helvetica, sans-serif;}
   input[type="date"]{
     padding: 6px 8px;
   }
+
   input[type="submit"] {
     margin-top: 36px;
-    background: #42c657;
-            border-width: 1px;
-            cursor: pointer;
+    border-width: 1px;
+    cursor: pointer;
+    background-color: #2ba6cb;
+    border-color: #2284a1;
+    color: white;
 
-            background-color: #2ba6cb;
-            border-color: #2284a1;
-            color: white;
-  &:hover {
-    background: #27b63e;
+    &:hover {
+      background: #27b63e;
     }
+  }
+
+  img.spinner {
+    position: absolute;
+    right: 55px;
+    top: 46px;
   }
 
   .opticals {
