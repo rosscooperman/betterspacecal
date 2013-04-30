@@ -221,6 +221,7 @@ function clearLocs(){
      .data([])
      .exit()
      .remove();
+  loadedCoords=[];
 }
 
 var loadedCoords = [];
