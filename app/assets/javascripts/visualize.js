@@ -160,6 +160,11 @@ function modalTop() {
   return (center - ($('#default-popup').height() / 3)).toString() + 'px';
 }
 
+function defaultImage(img)
+{
+    img.onerror = "";
+    img.src = '/assets/default.jpg';
+}
 
 var template = null, modalShowing = false;
 function showModal(d) {
