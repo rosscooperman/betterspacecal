@@ -12,7 +12,7 @@ CONSUMER_SECRET = 'KfSaacldQ04RfLsUpVbCHMVFKnOU5RMW0cc8NivVR8'
 ACCESS_KEY = '1367808150-XWGhtrrKe5ZyZiRk7HuCJfJRGAdOspg4W6hWme3'
 ACCESS_SECRET = 'pKGZb2ZXp0GWVfhwOao4vFpKc650lwiixQVH9sW6U'
 
-tweets = ["The #SOURCE# satellite is now targetting #TARGET# #mysspacecal @SpaceApps", "#myspacecal is reporting that #SOURCE# now observing #TARGET# @SpaceApps", "#TARGET# is now being reviewed by the #SOURCE# satellite @SpaceApps #myspacecal", "Viewing #TARGET# by #SOURCE# now happening. #myspacecal#"]
+tweets = ["The #SOURCE# satellite is now targetting #TARGET# #mysspacecal #SpaceApps", "#myspacecal is reporting that #SOURCE# now observing #TARGET# #SpaceApps", "#TARGET# is now being reviewed by the #SOURCE# satellite #SpaceApps #myspacecal", "Viewing #TARGET# by #SOURCE# now happening. #myspacecal#"]
          
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
