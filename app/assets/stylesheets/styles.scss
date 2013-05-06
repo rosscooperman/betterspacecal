@@ -35,14 +35,34 @@ body {
 }
 
 
+#vote {
+  text-align: center;
+  font-size: 16px;
+  padding: 4px 0;
+  background: #186b3b;
+  border-top: 1px solid #2c3e50;
+  border-bottom: 1px solid #2c3e50;
+  &:hover {
+    background: #2ecc71;
+    a {color: #092615;}
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: #FFF;
+    font-weight: bold;
+    &:hover {color: #092615; }
+  }
+}
+
 header {
   text-align: center;
   color: #fff;
   padding: 1em 0;
   @include backgroundimage(180deg, #212112, 0%, #111, 100%);
-  -moz-box-shadow:    inset 0px 2px 0px 0 rgba(255,255,255,0.40);
-  -webkit-box-shadow: inset 0px 2px 0px 0 rgba(255,255,255,0.40);
-  box-shadow:         inset 0px 2px 0px 0 rgba(255,255,255,0.40);
+//  -moz-box-shadow:    inset 0px 2px 0px 0 rgba(255,255,255,0.40);
+//  -webkit-box-shadow: inset 0px 2px 0px 0 rgba(255,255,255,0.40);
+//  box-shadow:         inset 0px 2px 0px 0 rgba(255,255,255,0.40);
   li {
     display: inline-block;
     margin-left: 8px;
